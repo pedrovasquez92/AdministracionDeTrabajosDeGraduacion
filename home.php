@@ -36,6 +36,20 @@
     <![endif]-->
   </head>
   <body class="skin-blue">
+
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuario']))
+    {
+      header('Location: index.php');
+      exit();
+    }
+?>
+
+
     <div class="wrapper">
 
       <header class="main-header">
@@ -266,11 +280,9 @@
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
-                    </div>
+
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
