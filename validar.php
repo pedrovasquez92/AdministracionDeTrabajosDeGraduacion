@@ -32,7 +32,7 @@ if($row = mysql_fetch_array($result))
   //Almacenamos el nombre de usuario en una variable de sesión usuario
   $_SESSION['usuario'] = $usuario;
   //Redireccionamos a la pagina: index.php
-  header("Location: home.php");
+  header("Location: facultad.php");
  }
  else
  {
