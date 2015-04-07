@@ -336,13 +336,13 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="calendarioMenu.php">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
@@ -420,12 +420,12 @@
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
+      <!--<footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-      </footer>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
+      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
