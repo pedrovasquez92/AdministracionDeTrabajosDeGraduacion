@@ -336,13 +336,13 @@
               </a>
             </li>
             <li>
-              <a href="calendarioMenu.php">
+              <a href="facultad/calendarioMenu.php">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="mensajeMenu.php">
+              <a href="facultad/mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
