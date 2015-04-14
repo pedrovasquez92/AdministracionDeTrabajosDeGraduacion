@@ -67,3 +67,17 @@ mysql_free_result($result);
 mysql_close();
 ?>
 
+
+$var = "<div class="col-md-3">
+                  <div class="box box-warning box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><a href="calendario.php">Trabajo de Graduación #3</a></h3>
+                      <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                      Pequeña Descripción
+                    </div><!-- /.box-body -->
+                  "</div><!-- /.box -->" +
+                "</div>"

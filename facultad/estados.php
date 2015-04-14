@@ -37,18 +37,6 @@
   </head>
   <body class="skin-red">
 
-<?php
-    //creamos la sesion
-    session_start();
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuario']))
-    {
-      header('Location: index.php');
-      exit();
-    }
-?>
-
 
     <div class="wrapper">
 
@@ -282,7 +270,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -314,7 +302,7 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="../facultad.php">
+              <a href="#">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
@@ -324,8 +312,8 @@
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="active ">
+              <a href="estados.php">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
@@ -335,14 +323,14 @@
                 <span>Revisiones</span>
               </a>
             </li>
-            <li class="active">
-              <a href="calendarioMenu.php">
+            <li>
+              <a href="facultad/calendarioMenu.php">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="mensajeMenu.php">
+              <a href="facultad/mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
@@ -357,133 +345,36 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
+
+          <section class="content">
+              <div class="row">
+                  <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Default Box Example</h3>
+              <div class="box-tools pull-right">
+                <!-- Buttons, labels, and many other things can be placed here! -->
+                <!-- Here is a label for example -->
+                <span class="label label-primary">Label</span>
+              </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              The body of the box
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+              The footer of the box
+            </div><!-- box-footer -->
+          </div>
+
+              </div>
+
+
+          </section>
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-              <h1>
-                Lista de Reuniones
-                <small>Segun Trabajo de Graduacion</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
-              </ol>
-        </section>
+        <!-- /.box -->
 
 
         <!-- Main content -->
         <section class="content">
-
-            <div class="row">
-               <div class="col-sm-3 search-form">
-                <form action="#" class="text-right">
-                <div class="input-group">
-                <input type="text" class="form-control input-sm" placeholder="Buscar Trabajo">
-                <div class="input-group-btn">
-                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
-                </div>
-                </div>
-                </form>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-
-                <div class="col-md-3">
-                      <div class="box box-warning box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php">Trabajo de Graduación #1</a></h3>
-                          <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          Pequeña Descripción
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
-                </div>
-
-                <div class="col-md-3">
-                  <div class="box box-warning box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><a href="calendario.php">Trabajo de Graduación #2</a></h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      Pequeña Descripción
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-
-
-                <div class="col-md-3">
-                  <div class="box box-warning box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><a href="calendario.php">Trabajo de Graduación #3</a></h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      Pequeña Descripción
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-
-
-                <div class="col-md-3">
-                  <div class="box box-warning box-solid">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Trabajo de Graduación #4</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      Pequeña Descripción
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-
-
-                <div class="col-md-3">
-                  <div class="box box-warning box-solid">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Trabajo de Graduación #5</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      Pequeña Descripción
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-
-
-                <div class="col-md-3">
-                  <div class="box box-warning box-solid">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Trabajo de Graduación #6</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      Pequeña Descripción
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-
-
-
-            </div>
-
-
-
-
-
 
         </section>
 
