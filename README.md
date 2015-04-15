@@ -13,6 +13,8 @@ ATG.V1.4
 -eliminacion de validar.php
 -Modificacion de index.php capaz de recibir datos GET provenientes de class_login.php
 -Finalizacion de index.php
+-Creacion de carpeta CHANGE LOG para ir ingresando las actualizaciones con capturas
+
 <img src="CHANGE%2520LOG/loggeo.png"/>
 
 <br/>
