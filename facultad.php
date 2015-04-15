@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+
+
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuarioFacultad']))
+    {
+      header('Location: index.php');
+      exit();
+    }
+?>
+<!--*************************************-->
+
+
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -37,17 +55,7 @@
   </head>
   <body class="skin-red">
 
-<?php
-    //creamos la sesion
-    session_start();
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuario']))
-    {
-      header('Location: index.php');
-      exit();
-    }
-?>
+
 
 
     <div class="wrapper">
@@ -262,7 +270,7 @@
                   <li class="user-header">
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Facultad - Web Developer
+                      <?php echo $_SESSION['identificador']?>  - Facultad
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -301,7 +309,7 @@
               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Facultad</p>
+              <p><?php echo $_SESSION['identificador']?></p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>

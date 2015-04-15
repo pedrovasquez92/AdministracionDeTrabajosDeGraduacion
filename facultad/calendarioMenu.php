@@ -44,7 +44,7 @@
     //si no se ha hecho la sesion nos regresará a login.php
     if(!isset($_SESSION['usuario']))
     {
-      header('Location: index.php');
+      header('Location: ../index.php');
       exit();
     }
 ?>

@@ -27,18 +27,20 @@
     <![endif]-->
   </head>
   <body class="skin-red">
-
-<?php
+  <?php
     //creamos la sesion
     session_start();
     //validamos si se ha hecho o no el inicio de sesion correctamente
     //si no se ha hecho la sesion nos regresará a login.php
     if(!isset($_SESSION['usuario']))
     {
-      header('Location: index.php');
+      header('Location: ../index.php');
       exit();
     }
 ?>
+
+
+
 
 
     <div class="wrapper">
@@ -104,7 +106,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Sales Department
@@ -116,7 +118,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Reviewers
@@ -245,13 +247,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                   <span class="hidden-xs">Facultad</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       Facultad - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -289,7 +291,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>Facultad</p>
@@ -448,18 +450,18 @@
     <!-- Bootstrap 3.3.2 JS -->
     <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- jQuery UI 1.11.1 -->
-    <script src="../https://code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Slimscroll -->
     <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='plugins/fastclick/fastclick.min.js'></script>
+    <script src='../plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js" type="text/javascript"></script>
+    <script src="../dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js" type="text/javascript"></script>
+    <script src="../dist/js/demo.js" type="text/javascript"></script>
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
-    <script src="plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="../plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 
 
     <script type="text/javascript">
@@ -511,6 +513,8 @@
           },
           //Random default events
           events: [
+
+
 
 
               //Lista de eventos
