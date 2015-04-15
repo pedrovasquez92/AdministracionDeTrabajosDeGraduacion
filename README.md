@@ -15,12 +15,8 @@ ATG.V1.4
 -Finalizacion de index.php
 -Creacion de carpeta CHANGE LOG para ir ingresando las actualizaciones con capturas
 
-![Alt text](/CHANGE%2520LOG/loggeo.png?raw=true "Optional Title")
-![Settings Window](https://raw.github.com/LeonelCabrera/AdministracionDeTrabajosDeGraduacion/master/screenshots/loggeo.png)
+![Alt text](screenshots/loggeo.png "Optional Title")
 
-<img src="CHANGE%2520LOG/loggeo.PNG"/>
-
-<br/>
 <img src="CHANGE%2520LOG/nombreDeUser.png"/>
 
 
