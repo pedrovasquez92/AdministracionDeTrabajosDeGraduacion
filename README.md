@@ -16,6 +16,7 @@ ATG.V1.4
 -Creacion de carpeta CHANGE LOG para ir ingresando las actualizaciones con capturas
 
 ![Alt text](/CHANGE%2520LOG/loggeo.png?raw=true "Optional Title")
+![ScreenShot](https://raw.github.com/LeonelCabrera/AdministracionDeTrabajosDeGraduacion/master/screenshots/loggeo.png)
 <img src="CHANGE%2520LOG/loggeo.png"/>
 
 <br/>
