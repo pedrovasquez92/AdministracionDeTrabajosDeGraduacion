@@ -4,7 +4,7 @@ Administracion de Trabajos de Graduacion !!
 
 
 ATG.V1.4
--Creacion de clases en php para la administracion de la conexion
+-Creacion de clases en php para la administracion de la conexion<br />
 -Creacion de class_login.php para administrar el logueo
 -Consulta de tipo de usuario
 -Muestra el nombre el usuario en la aplicacion
@@ -15,9 +15,9 @@ ATG.V1.4
 -Finalizacion de index.php
 -Creacion de carpeta CHANGE LOG para ir ingresando las actualizaciones con capturas
 
-![Alt text](/screenshots/loggeo.png "Optional Title")
+![Alt text](/screenshots/loggeo.png "Nuevo mensaje de logueo")
 
-<img src="CHANGE%2520LOG/nombreDeUser.png"/>
+![Alt text](/screenshots/nombreDeUser.png "Identificacion de usuario")
 
 
 
