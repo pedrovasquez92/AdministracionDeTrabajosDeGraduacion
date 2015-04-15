@@ -18,7 +18,7 @@ ATG.V1.4
 ![Alt text](/CHANGE%2520LOG/loggeo.png?raw=true "Optional Title")
 ![Settings Window](https://raw.github.com/LeonelCabrera/AdministracionDeTrabajosDeGraduacion/master/screenshots/loggeo.png)
 
-<img src="CHANGE%2520LOG/loggeo.png"/>
+<img src="CHANGE%2520LOG/loggeo.PNG"/>
 
 <br/>
 <img src="CHANGE%2520LOG/nombreDeUser.png"/>
