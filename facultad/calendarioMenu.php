@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuarioFacultad']))
+    {
+      header('Location: ../index.php');
+      exit();
+    }
+?>
+<!--*************************************-->
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -37,19 +52,6 @@
   </head>
   <body class="skin-red">
 
-<?php
-    //creamos la sesion
-    session_start();
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuario']))
-    {
-      header('Location: ../index.php');
-      exit();
-    }
-?>
-
-
     <div class="wrapper">
 
       <header class="main-header">
@@ -59,7 +61,7 @@
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Iconos de navegacion</span>
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -373,18 +375,34 @@
         <!-- Main content -->
         <section class="content">
 
+           <!--Formulario encargado de la busqueda.-->
+            <form action="#" >
+
             <div class="row">
-               <div class="col-sm-3 search-form">
-                <form action="#" class="text-right">
-                <div class="input-group">
-                <input type="text" class="form-control input-sm" placeholder="Buscar Trabajo">
-                <div class="input-group-btn">
-                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+             <!--Select Box-->
+              <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Escoga el tipo de busqueda que desea realizar</label>
+                      <select class="form-control">
+                        <option>Nombre de trabajo</option>
+                        <option>Nombre de asesor</option>
+                        <option>Nombre de asesorado</option>
+                        <option>Nombre de carrera</option>
+                        <option>Tipo de trabajos</option>
+                      </select>
+                 </div>
+                 <div class="input-group">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-danger">Buscar</button>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control">
+                  </div>
                 </div>
-                </div>
-                </form>
-                </div>
+
             </div>
+            </form>
+
+
             <br/>
             <div class="row">
 

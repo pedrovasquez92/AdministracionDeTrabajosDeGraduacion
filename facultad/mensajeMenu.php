@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<?php
-    require_once 'class/class_login.php';
-    $blog = new blog();
-    if (isset($_POST['grabar']) and $_POST['grabar']=='si')
-    {
-        $blog->nueva_sesion();
-    }else{
 
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuarioFacultad']))
+    {
+      header('Location: ../index.php');
+      exit();
     }
 ?>
+<!--*************************************-->
 
 <html>
   <head>
