@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+
+   <?php
+    require_once 'clases/class_login.php';
+    $logueo = new logueo();
+    if (isset($_POST['grabar']) and $_POST['grabar']=='si')
+    {
+        $logueo->nueva_sesion();
+    }else{
+
+    }
+?>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -30,15 +42,36 @@
 
 
 
-        <form action="validar.php" method="post">
+        <form action="" method="post">
           <div class="form-group has-feedback">
             <input type="text" name="carnet" class="form-control" placeholder="Carnet/NIT"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
+          <tr><input type="hidden" name="grabar" value="si">
           <div class="form-group has-feedback">
             <input type="password" name="pass" class="form-control" placeholder="Contraseña"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+          <div class="form-group has-feedback">
+               <label>
+               <!--Mensaje que viene de class_login-->
+                <?php
+                    if(isset($_GET['usuario']))
+                    {
+                    ?>
+
+                    <?php
+                        switch($_GET['usuario'])
+                        {
+                            case 'no_existe':
+                            ?>
+                                Los datos introducidos no existen o estan incorrectos
+                            <?php
+                        }
+                    }
+                    ?>
+                   </label>
+            </div>
           <div class="row">
 
             <div class="col-xs-4">
@@ -46,9 +79,6 @@
             </div><!-- /.col -->
           </div>
         </form>
-
-
-
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
