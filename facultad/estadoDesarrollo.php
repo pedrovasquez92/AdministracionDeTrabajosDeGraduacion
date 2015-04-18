@@ -348,8 +348,8 @@
           <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Etapas
-            <small>Porcentaje Completado</small>
+            Informes
+            <small>Informe Mensual</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -361,53 +361,104 @@
 
           <!-- Your Page Content Here -->
             <div class="row">
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Primera Etapa</span>
-                   <span class="info-box-number">Propuesta </span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Segunta Etapa</span>
-                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
+               <div class="col-md-6">
+                 <div class="info-box bg-green">
+                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Primer Informe</span>
+                  <span class="info-box-number">Completado</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
-                       <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
-                   <span class="info-box-number" style="color:black">Desarrollo </span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                   </a>
-
+               <div class="col-md-6">
+                 <div class="info-box bg-green">
+                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Segundo Informe</span>
+                  <span class="info-box-number">Completado</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
                 </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Cuarta Etapa</span>
-                   <span class="info-box-number">Informe Final</span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                 <div class="info-box bg-green">
+                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Tercer Informe</span>
+                  <span class="info-box-number">Completado</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                 <div class="info-box bg-green">
+                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Cuarto Informe</span>
+                  <span class="info-box-number">Completado</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                 <div class="info-box bg-gray">
+                 <span class="info-box-icon"><i class="fa fa-times-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Quinto Informe</span>
+                  <span class="info-box-number">No Disponible</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                 <div class="info-box bg-gray">
+                 <span class="info-box-icon"><i class="fa fa-times-circle"></i></span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Sexto Informe</span>
+                  <span class="info-box-number">No Disponible</span>
+                  <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a>
+              </span>
+            </div><!-- /.info-box-content -->
+          </div><!-- /.info-box -->
                 </div>
             </div>
 
-
         </section><!-- /.content -->
-        <!-- Content Header (Page header) -->
-        <!-- /.box -->
+      </div><!-- /.content-wrapper -->
 
 
         <!-- Main content -->
