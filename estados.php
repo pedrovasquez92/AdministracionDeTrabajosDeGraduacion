@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-
-
-<!--Verificacion de el inicio de sesion-->
-<?php
-    //creamos la sesion
-    session_start();
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuarioFacultad']))
-    {
-      header('Location: index.php');
-      exit();
-    }
-?>
-<!--*************************************-->
-
-
-
 <html>
   <head>
     <meta charset="UTF-8">
@@ -55,7 +37,17 @@
   </head>
   <body class="skin-red">
 
-
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuario']))
+    {
+      header('Location: index.php');
+      exit();
+    }
+?>
 
 
     <div class="wrapper">
@@ -270,7 +262,7 @@
                   <li class="user-header">
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      <?php echo $_SESSION['identificador']?>  - Facultad
+                      Facultad - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -309,7 +301,7 @@
               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p><?php echo $_SESSION['identificador']?></p>
+              <p>Facultad</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -344,13 +336,13 @@
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php">
+              <a href="calendarioMenu.php">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php">
+              <a href="mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
@@ -370,6 +362,22 @@
 
         <!-- Main content -->
         <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <?php
+                        mysql_connect('localhost','root','')or die ('Ha fallado la conexión: '.mysql_error());
+                        mysql_select_db('mydb')or die ('Error al seleccionar la Base de Datos: '.mysql_error());
+                        $result = mysql_query("SELECT Decano, pass FROM Facultad WHERE NIT_Decano = '101'");
+                        $extraido= mysql_fetch_array($result);
+                        echo "Nombre del Decano: ".$extraido[0];
+                        echo " <br>Contraseña del Decano: ".$extraido[1];
+                        //$extraido= mysql_fetch_array($result);
+
+                        //echo $extraido;
+                        // el nit del decano y muestre el pass
+                    ?>
+                </div>
+            </div>
         <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
