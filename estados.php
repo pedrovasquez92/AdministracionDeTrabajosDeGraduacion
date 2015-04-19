@@ -5,28 +5,28 @@
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.0 -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
-    <link href="../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="../plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Date Picker -->
-    <link href="../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +36,18 @@
     <![endif]-->
   </head>
   <body class="skin-red">
+
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuario']))
+    {
+      header('Location: index.php');
+      exit();
+    }
+?>
 
 
     <div class="wrapper">
@@ -65,7 +77,7 @@
                       <li><!-- start message -->
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
                           </div>
                           <h4>
                             Support Team
@@ -77,7 +89,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             AdminLTE Design Team
@@ -89,7 +101,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Developers
@@ -101,7 +113,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Sales Department
@@ -113,7 +125,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Reviewers
@@ -242,13 +254,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                   <span class="hidden-xs">Facultad</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       Facultad - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -286,7 +298,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>Facultad</p>
@@ -301,7 +313,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="treeview">
+            <li class="active treeview">
               <a href="#">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -312,8 +324,8 @@
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="estados.php">
+            <li>
+              <a href="#">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
@@ -324,13 +336,13 @@
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php">
+              <a href="calendarioMenu.php">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php">
+              <a href="mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
@@ -345,74 +357,81 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Etapas
-            <small>Porcentaje Completado</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol>
-        </section>
-          <!-- Main content -->
-        <section class="content">
-
-          <!-- Your Page Content Here -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Primera Etapa</span>
-                   <span class="info-box-number">Propuesta </span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Segunta Etapa</span>
-                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
-                       <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
-                   <span class="info-box-number" style="color:black">Desarrollo </span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                   </a>
-
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Cuarta Etapa</span>
-                   <span class="info-box-number">Informe Final</span>
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
-
-
-        </section><!-- /.content -->
         <!-- Content Header (Page header) -->
-        <!-- /.box -->
 
 
         <!-- Main content -->
         <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <?php
+                        mysql_connect('localhost','root','')or die ('Ha fallado la conexión: '.mysql_error());
+                        mysql_select_db('mydb')or die ('Error al seleccionar la Base de Datos: '.mysql_error());
+                        $result = mysql_query("SELECT Decano, pass FROM Facultad WHERE NIT_Decano = '101'");
+                        $extraido= mysql_fetch_array($result);
+                        echo "Nombre del Decano: ".$extraido[0];
+                        echo " <br>Contraseña del Decano: ".$extraido[1];
+                        //$extraido= mysql_fetch_array($result);
 
+                        //echo $extraido;
+                        // el nit del decano y muestre el pass
+                    ?>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>15</h3>
+                  <p>Trabajos en desarrollo</p>
+                </div>
+                <div class="icon">
+                  <i class="glyphicon glyphicon-edit"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>40</h3>
+                  <p>Trabajos Terminados</p>
+                </div>
+                <div class="icon">
+                  <i class="glyphicon glyphicon-check"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>44</h3>
+                  <p>Asesorados</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>10</h3>
+                  <p>Asesores</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div>
         </section>
 
         <!-- /.content -->
@@ -426,7 +445,7 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
-    <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- jQuery UI 1.11.2 -->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -434,36 +453,36 @@
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="../plugins/morris/morris.min.js" type="text/javascript"></script>
+    <script src="plugins/morris/morris.min.js" type="text/javascript"></script>
     <!-- Sparkline -->
-    <script src="../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
     <!-- jvectormap -->
-    <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
     <!-- jQuery Knob Chart -->
-    <script src="../plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <script src="plugins/knob/jquery.knob.js" type="text/javascript"></script>
     <!-- daterangepicker -->
-    <script src="../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
     <!-- datepicker -->
-    <script src="../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Bootstrap WYSIHTML5 -->
-    <script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
     <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='../plugins/fastclick/fastclick.min.js'></script>
+    <script src='plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="dist/js/app.min.js" type="text/javascript"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js" type="text/javascript"></script>
+    <script src="dist/js/pages/dashboard.js" type="text/javascript"></script>
 
     <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js" type="text/javascript"></script>
+    <script src="dist/js/demo.js" type="text/javascript"></script>
   </body>
 </html>
