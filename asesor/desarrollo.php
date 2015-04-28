@@ -384,7 +384,6 @@
                          <span>
                        <td><button class="btn btn-success">Activar</button></td>
                            <td><button class="btn btn-danger">Desactivar</button></td>
-
                        </span>
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
