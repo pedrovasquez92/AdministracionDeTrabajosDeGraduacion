@@ -367,16 +367,10 @@
                    <div class="info-box-content">
                    <span class="info-box-text">Primera Etapa</span>
                    <span class="info-box-number">Propuesta </span>
-                <span class="info-box-number">
+                       <span>
+                       <td><button class="btn btn-success">Activar</button></td>
+                           <td><button class="btn btn-danger">Desactivar</button></td>
 
-                       <div class="form-group">
-<label for="exampleInputFile">Seleccione su Archivo</label>
-<input type="file" id="exampleInputFile">
-<p class="help-block">Example block-level help text here.</p>
-</div>
-                    <div class="box-footer">
-<button type="submit" class="btn btn-primary">Submit</button>
-</div>
                        </span>
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
@@ -387,6 +381,11 @@
                    <div class="info-box-content">
                    <span class="info-box-text">Segunta Etapa</span>
                    <span class="info-box-number">Plan de Trabajo o Protocolo</span>
+                         <span>
+                       <td><button class="btn btn-success">Activar</button></td>
+                           <td><button class="btn btn-danger">Desactivar</button></td>
+
+                       </span>
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
                 </div>
@@ -399,6 +398,11 @@
                    <div class="info-box-content">
                    <span class="info-box-text" style="color:black">Tercera Etapa</span>
                    <span class="info-box-number" style="color:black">Desarrollo </span>
+                         <span>
+                       <td><button class="btn btn-success">Activar</button></td>
+                           <td><button class="btn btn-danger">Desactivar</button></td>
+
+                       </span>
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
                    </a>
@@ -410,6 +414,11 @@
                    <div class="info-box-content">
                    <span class="info-box-text">Cuarta Etapa</span>
                    <span class="info-box-number">Informe Final</span>
+                         <span>
+                       <td><button class="btn btn-success">Activar</button></td>
+                           <td><button class="btn btn-danger">Desactivar</button></td>
+
+                       </span>
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
                 </div>
