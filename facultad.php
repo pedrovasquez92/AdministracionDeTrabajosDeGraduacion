@@ -138,30 +138,30 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="facultad/estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="facultad/revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php">
+              <a href="facultad/calendarioMenu.php?patron=">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php">
+              <a href="facultad/mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="#"><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="facultad/expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -240,12 +240,7 @@
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <!--<footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
-      </footer>-->
+
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->

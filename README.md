@@ -2,6 +2,12 @@ Bienvenidos al desarrollo de la aplicacion web
 Administracion de Trabajos de Graduacion !!
 
 
+ATG. V1.4<br>
+-Se agrego descripcion a la tabla "trabajo_graduacion"
+-Se creo el boton de  buscar con una respuesta GET
+-
+
+
 
 ATG.V1.4<br />
 -Creacion de clases en php para la administracion de la conexion<br />
