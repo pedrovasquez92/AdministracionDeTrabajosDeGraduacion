@@ -207,8 +207,21 @@
 
                 <?php foreach($trabajoGraduacion as $item): ?>
 
+                <?php if ($item['usuario']==1): ?>
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                       <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div>
 
-                          <!-- Message to the right -->
+
+                <?php else: ?>
+                            <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
@@ -221,7 +234,12 @@
                     </div><!-- /.direct-chat-msg -->
 
 
+
+                <?php endif ?>
+
+
                 <?php endforeach; ?>
+
 
 
 

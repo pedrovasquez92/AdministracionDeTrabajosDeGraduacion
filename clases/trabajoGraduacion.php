@@ -75,7 +75,7 @@
 
   public static function recuperarMensajes($id){
        $Conexion = new Conectar();
-       $consulta = $Conexion->prepare('SELECT Fecha,Mensajecol,Remitente FROM Mensaje Inner join Trabajo_Graduacion
+       $consulta = $Conexion->prepare('SELECT usuario,Fecha,Mensajecol,Remitente FROM Mensaje Inner join Trabajo_Graduacion
        on Mensaje.Trabajo_Graduacion_idTrabajo_Graduacion = Trabajo_Graduacion.idTrabajo_Graduacion
        WHERE Trabajo_Graduacion.idTrabajo_Graduacion='.$id);
        $consulta->bindParam(':patron', $patron);
