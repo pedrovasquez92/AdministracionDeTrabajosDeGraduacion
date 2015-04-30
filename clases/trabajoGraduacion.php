@@ -72,7 +72,6 @@
        $registros = $consulta->fetchAll();
        return $registros;
     }
-
   public static function recuperarMensajes($id){
        $Conexion = new Conectar();
        $consulta = $Conexion->prepare('SELECT usuario,Fecha,Mensajecol,Remitente FROM Mensaje Inner join Trabajo_Graduacion
@@ -82,6 +81,14 @@
        $consulta->execute();
        $registros = $consulta->fetchAll();
        return $registros;
+  }
+  public static function escribirMensaje($mensaje){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('INSERT INTO Mensaje
+        (idMensaje,Fecha,Mensajecol,Trabajo_Graduacion_idTrabajo_Graduacion,Remitente,usuario)
+        values ();');
+       $consulta->execute();
+       $Conexion = null;
   }
 
  }

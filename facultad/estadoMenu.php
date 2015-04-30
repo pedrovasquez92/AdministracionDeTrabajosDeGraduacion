@@ -124,41 +124,41 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="active treeview">
-              <a href="#">
+              <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
             <li>
-              <a href="facultad/estadoMenu.php?=">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="facultad/revisionMenu.php">
+              <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
+              <a href="calendarioMenu.php?patron=">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php?=">
+              <a href="mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="facultad/expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -227,7 +227,7 @@
                 <div class="col-md-3">
                       <div class="box box-danger box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
+                            <h3 class="box-title"><a href="estados.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
                           <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                           </div><!-- /.box-tools -->

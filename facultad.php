@@ -150,7 +150,7 @@
             </li>
             <li>
               <a href="facultad/calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>

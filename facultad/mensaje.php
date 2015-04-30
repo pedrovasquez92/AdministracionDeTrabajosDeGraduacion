@@ -21,6 +21,7 @@
 ?>
 -->
 
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -95,7 +96,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -129,41 +130,41 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="active treeview">
-              <a href="#">
+              <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
             <li>
-              <a href="facultad/estadoMenu.php?=">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="facultad/revisionMenu.php">
+              <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
+              <a href="calendarioMenu.php?patron=">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php?=">
+              <a href="mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="facultad/expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -179,8 +180,8 @@
                 <small>Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
+                <li><a href="../facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
+                <li class="active">Mensajes</li>
               </ol>
         </section>
 
@@ -213,7 +214,7 @@
                         <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
                         <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
                       </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                        <?php echo $item['Mensajecol']; ?>
                       </div><!-- /.direct-chat-text -->
@@ -227,7 +228,7 @@
                         <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
                         <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
                       </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         <?php echo $item['Mensajecol']; ?>
                       </div><!-- /.direct-chat-text -->
@@ -254,21 +255,9 @@
                   </div><!--/.direct-chat-messages-->
 
 
-                  <!-- Contacts are loaded here -->
-                  <div class="direct-chat-contacts">
 
-                  </div><!-- /.direct-chat-pane -->
                 </div><!-- /.box-body -->
-                <div class="box-footer">
-                  <form action="#" method="post">
-                    <div class="input-group">
-                      <input type="text" name="message" placeholder="Escribe un mensaje ..." class="form-control">
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-danger btn-flat">Enviar</button>
-                      </span>
-                    </div>
-                  </form>
-                </div><!-- /.box-footer-->
+                <!-- /.box-footer-->
               </div>
 
         </section>
