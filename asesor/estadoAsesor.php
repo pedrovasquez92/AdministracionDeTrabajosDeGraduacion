@@ -348,7 +348,7 @@
           <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Etapas de la Revision
+            Estado de Proyecto
             <small>Porcentaje Completado</small>
           </h1>
           <ol class="breadcrumb">
@@ -371,8 +371,11 @@
                        <td><button class="btn btn-success">Habilitar </button></td>
                            <td><button class="btn btn-danger">Desactivar </button></td>
 
+                              <input type="checkbox" /> Finalizado
                        </span>
+                       <span>
 
+                           </span>
 
                    </div><!-- /.info-box-content -->
                    </div><!-- /.info-box -->
@@ -386,6 +389,7 @@
                          <span>
                        <td><button class="btn btn-success">Habilitar </button></td>
                            <td><button class="btn btn-danger">Desactivar </button></td>
+                             <input type="checkbox" /> Finalizado
                        </span>
 
 
@@ -404,7 +408,7 @@
                          <span>
                        <td><button class="btn btn-success">Habilitar</button></td>
                            <td><button class="btn btn-danger">Desactivar</button></td>
-
+<input type="checkbox" /> Finalizado
                        </span>
 
                    </div><!-- /.info-box-content -->
@@ -421,6 +425,7 @@
                          <span>
                        <td><button class="btn btn-success">Habilitar  </button></td>
                            <td><button class="btn btn-danger">Desactivar </button></td>
+                             <input type="checkbox" /> Finalizado
 
                        </span>
 

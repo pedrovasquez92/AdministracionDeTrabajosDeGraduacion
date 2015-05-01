@@ -12,6 +12,8 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -27,6 +29,8 @@
     <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -345,102 +349,107 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
+              <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Etapas de la Revision
-            <small>Porcentaje Completado</small>
+            Calendario de actividades
+            <small>   </small>
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol>
+
+
         </section>
           <!-- Main content -->
-        <section class="content">
 
-          <!-- Your Page Content Here -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Primera Etapa</span>
-                   <span class="info-box-number">Propuesta </span>
-                       <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-
-                       </span>
+           <section class="content">
 
 
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
+
+
+             <h4> </h4>
+
+<form action="#" method="post">
+<div class="row">
+            <div class="col-md-3">
+              <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Eventos Arrastrables</h4>
                 </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Segunta Etapa</span>
-                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-                       </span>
-
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
+                <div class="box-body">
+                  <!-- the events -->
+                  <div id='external-events'>
+                    <div class='external-event bg-green'>Reunion #1</div>
+                    <div class='external-event bg-yellow'>Reunion #2</div>
+                    <div class='external-event bg-aqua'>Reunion #3</div>
+                    <div class='external-event bg-light-blue'>Reunion #4</div>
+                    <div class='external-event bg-red'>Reunion #5</div>
+                    <div class="checkbox">
+                      <label for='drop-remove'>
+                        <input type='checkbox' id='drop-remove' />
+                        Eliminar despues de arrastrar
+                      </label>
+                    </div>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /. box -->
+              <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Crear nuevo Evento</h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
-                       <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
-                   <span class="info-box-number" style="color:black">Desarrollo </span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar</button></td>
-                           <td><button class="btn btn-danger">Desactivar</button></td>
-
-                       </span>
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                   </a>
-
+                <div class="box-body">
+                  <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                    <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                    <ul class="fc-color-picker" id="color-chooser">
+                      <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                      <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                    </ul>
+                  </div><!-- /btn-group -->
+                  <div class="input-group">
+                    <input id="new-event" type="text" class="form-control" placeholder="Titulo del Evento">
+                    <div class="input-group-btn">
+                      <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Agregar</button>
+                    </div><!-- /btn-group -->
+                  </div><!-- /input-group -->
                 </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Cuarta Etapa</span>
-                   <span class="info-box-number">Informe Final</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar  </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-md-9">
+              <div class="box box-primary">
+                <div class="box-body no-padding">
+                  <!-- THE CALENDAR -->
+                  <div id="calendar"></div>
+                </div><!-- /.box-body -->
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div>
 
-                       </span>
-
-
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
+</form>
 
 
-        </section><!-- /.content -->
-        <!-- Content Header (Page header) -->
-        <!-- /.box -->
+
+</div>
 
 
-        <!-- Main content -->
-        <section class="content">
 
-        </section>
+
+
+
+          </section>
+
+
+
+            <!-- HASTA AQUI TERMINO -->
+
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->

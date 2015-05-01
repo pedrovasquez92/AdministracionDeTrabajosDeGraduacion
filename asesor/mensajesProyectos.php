@@ -12,6 +12,8 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -27,6 +29,8 @@
     <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -345,102 +349,121 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
+              <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Etapas de la Revision
-            <small>Porcentaje Completado</small>
+
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol>
+
+
         </section>
           <!-- Main content -->
-        <section class="content">
 
-          <!-- Your Page Content Here -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Primera Etapa</span>
-                   <span class="info-box-number">Propuesta </span>
-                       <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-
-                       </span>
+           <section class="content">
 
 
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Segunta Etapa</span>
-                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-                       </span>
+                 <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Chat</h3>
+                  <div class="box-tools pull-right">
 
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
-                       <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
-                   <span class="info-box-number" style="color:black">Desarrollo </span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar</button></td>
-                           <td><button class="btn btn-danger">Desactivar</button></td>
-
-                       </span>
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                   </a>
-
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Cuarta Etapa</span>
-                   <span class="info-box-number">Informe Final</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar  </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-
-                       </span>
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
 
 
 
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
+
+                <?php foreach($trabajoGraduacion as $item): ?>
+
+                <?php if ($item['usuario']==1): ?>
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                       <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div>
 
 
-        </section><!-- /.content -->
-        <!-- Content Header (Page header) -->
-        <!-- /.box -->
+                <?php else: ?>
+                            <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
 
 
-        <!-- Main content -->
-        <section class="content">
 
-        </section>
+                <?php endif ?>
+
+
+                <?php endforeach; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div><!--/.direct-chat-messages-->
+
+
+                  <!-- Contacts are loaded here -->
+                  <div class="direct-chat-contacts">
+
+                  </div><!-- /.direct-chat-pane -->
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                  <form action="facultad/mensaje.php" method="post">
+                    <div class="input-group">
+                      <input type="text" name="message" placeholder="Escribe un mensaje ..." class="form-control">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-danger btn-flat">Enviar</button>
+                      </span>
+                    </div>
+                  </form>
+                </div><!-- /.box-footer-->
+              </div>
+
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+          </section>
+
+
+
+            <!-- HASTA AQUI TERMINO -->
+
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->

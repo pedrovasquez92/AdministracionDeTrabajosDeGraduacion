@@ -12,6 +12,8 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -27,6 +29,8 @@
     <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -345,102 +349,92 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
+              <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Etapas de la Revision
-            <small>Porcentaje Completado</small>
+            Etapa 1
+            <small>  Revision de proyecto entregrado por respectiva etapa </small>
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol>
+
+
         </section>
           <!-- Main content -->
-        <section class="content">
 
-          <!-- Your Page Content Here -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Primera Etapa</span>
-                   <span class="info-box-number">Propuesta </span>
-                       <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
+           <section class="content">
 
-                       </span>
+          <div class="row">
 
 
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Segunta Etapa</span>
-                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-                       </span>
-
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
-                       <div class="info-box bg-white">
-                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
-                   <span class="info-box-number" style="color:black">Desarrollo </span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar</button></td>
-                           <td><button class="btn btn-danger">Desactivar</button></td>
-
-                       </span>
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                   </a>
-
-                </div>
-                <div class="col-md-6">
-                    <div class="info-box bg-white">
-                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
-                   <div class="info-box-content">
-                   <span class="info-box-text">Cuarta Etapa</span>
-                   <span class="info-box-number">Informe Final</span>
-                         <span>
-                       <td><button class="btn btn-success">Habilitar  </button></td>
-                           <td><button class="btn btn-danger">Desactivar </button></td>
-
-                       </span>
-
-
-
-                   </div><!-- /.info-box-content -->
-                   </div><!-- /.info-box -->
-                </div>
+          <div class="col-md-6">
+             <div class="box box-solid box-warning">
+                  <div class="box-header with-border">
+              <h3 class="box-title">Default Box Example</h3>
+              <div class="box-tools pull-right">
+              </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              The body of the box
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+              The footer of the box
+            </div><!-- box-footer -->
             </div>
 
-
-        </section><!-- /.content -->
-        <!-- Content Header (Page header) -->
-        <!-- /.box -->
+                </div>
+               </div>
 
 
-        <!-- Main content -->
-        <section class="content">
+                <div class="row">
 
-        </section>
+
+             <h4> Agregar un comentario</h4>
+
+<form action="#" method="post">
+<div class="modal-body">
+<div class="form-group">
+<div class="input-group">
+<span class="input-group-addon">Codigo:</span>
+<input name="email_to" type="text" class="form-control" >
+</div>
+</div>
+<div class="form-group">
+<div class="input-group">
+<span class="input-group-addon">Fecha:</span>
+<input name="email_to" type="date" class="form-control" placeholder="dd/mm/aa">
+</div>
+</div>
+<div class="form-group">
+<textarea name="message" id="email_message" class="form-control" placeholder="Comentario..." style="height: 120px;"></textarea>
+</div>
+<div class="form-group">
+<div class="btn btn-success btn-file">
+<i class="fa fa-paperclip"></i> Agregar
+<input type="file" name="attachment"/>
+</div>
+<p class="help-block">Max. 32MB</p>
+</div>
+</div>
+<div class="modal-footer clearfix">
+
+<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Enviar comentario</button>
+</div>
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+          </section>
+
+
+
+            <!-- HASTA AQUI TERMINO -->
+
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
