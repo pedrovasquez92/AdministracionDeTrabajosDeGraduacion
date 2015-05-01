@@ -67,11 +67,9 @@
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Iconos de navegacion</span>
           </a>
           <div class="navbar-custom-menu">
-
-           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
@@ -84,23 +82,22 @@
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      <?php echo $_SESSION['identificador']?>  - Facultad
+                      Facultad - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
+                  <!-- Menu Body -->
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
-
-
           </div>
         </nav>
       </header>
