@@ -154,7 +154,7 @@
               </a>
             </li>
 
-            <li><a href="#"><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expediente.php"><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
