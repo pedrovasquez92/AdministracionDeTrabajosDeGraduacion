@@ -91,5 +91,23 @@
        $Conexion = null;
   }
 
+
+      public static function llenarComboboxCarrera(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Carrera FROM Carrera');
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
+      public static function llenarTipoTrabajo(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Tipo_Trabajocol FROM Tipo_Trabajo');
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
+
  }
+
+
 ?>
