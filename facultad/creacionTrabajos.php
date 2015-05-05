@@ -16,13 +16,14 @@
 
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarTodos($_GET['patron']);
+ $llenarComboboxCarrera= TrabajoGraduacion::llenarComboboxCarrera();
+ $llenarTipoTrabajo = TrabajoGraduacion::llenarTipoTrabajo();
 ?>
 
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Trabajos de graduacion | Unicaes</title>
+    <title>Creacion de trabajos de graduación | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -127,41 +128,41 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="active treeview">
-              <a href="../facultad.php">
+              <a href="#">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
+              <a href="#">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
             <li>
-              <a href="estadoMenu.php?patron=">
+              <a href="facultad/estadoMenu.php?=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="revisionMenu.php?patron=">
+              <a href="facultad/revisionMenu.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Calendario</span>
+              <a href="facultad/calendarioMenu.php?patron=">
+                <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="mensajeMenu.php?patron=">
+              <a href="facultad/mensajeMenu.php?=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="facultad/expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -173,7 +174,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Lista de Reuniones
+                Creacion de Nuevo Trabajo
                 <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
@@ -183,81 +184,110 @@
         </section>
 
 
-        <!-- Main content -->
-        <section class="content">
-
-           <!--Formulario encargado de la busqueda.-->
-            <form method="get" action="calendarioMenu.php" >
+<!-- Main content -->
+<section class="content">
+   <!--Formulario encargado de la busqueda.-->
+        <form method="get" action="calendarioMenu.php" >
 
             <div class="row">
-             <!--Select Box-->
-              <div class="col-sm-4">
+            <!--Select Box-->
+                <div class="col-sm-4">
+
                     <div class="form-group">
-                      <label>Escoga el tipo de busqueda que desea realizar</label>
-                      <select class="form-control">
-                        <option>Nombre de trabajo</option>
-                        <!--<option>Nombre de asesor</option>
-                        <option>Nombre de asesorado</option>
-                        <option>Nombre de carrera</option>
-                        <option>Tipo de trabajos</option>-->
-                      </select>
-                 </div>
-                 <div class="input-group">
+                        <label>CARRERA</label>
+                        <select class="form-control">
+                            <?php foreach($llenarComboboxCarrera as $item): ?>
+                                <option><?php echo $item['Carrera'];?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
 
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-danger">Buscar</button>
-                    </div><!-- /btn-group -->
-                    <script src="funciones.js" type="text/javascript"></script>
-                    <input type="text" name="patron" id="txtbuscar" class="form-control">
-                  </div>
 
+                <div class="form-group">
+                        <label>INTEGRANTES</label>
                 </div>
-
+               </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <span class="form-group">
+                        <label>Nombre:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="form-group">
+                        <label>Carnet:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <span class="form-group">
+                        <label>Carnet:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label>Carnet:</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                 <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>TIPO DE TRABAJO</label>
+                        <select class="form-control">
+                            <?php foreach($llenarTipoTrabajo as $item): ?>
+                                <option><?php echo $item['Tipo_Trabajocol'];?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                     <div class="form-group">
+                         <label>TITULO DE TRABAJO</label>
+                            <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>LUGAR A REALIZARSE</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ASESOR DEL PROYECTO</label>
+                        <input class="form-control" placeholder="Enter ..." type="text">
+                    </div>
+                 </div>
+            </div>
+            <button class="btn btn-danger btn-lg">Guardar</button>
+
             </form>
-
-
             <br/>
             <div id="wrapperContent" class="row">
-
-
-
-
-
-
-<!--*************************************************************************************************************************-->
-               <?php foreach($trabajoGraduacion as $item): ?>
-                <div class="col-md-3">
-                      <div class="box box-danger box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
-                          <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          <?php echo $item['descripcion']; ?>
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
-                </div>
-               <?php endforeach; ?>
-<!--*************************************************************************************************************************-->
-
-
-
-
-
-
-
-
-
-
             </div>
-
-
-
-
-
 
         </section>
 

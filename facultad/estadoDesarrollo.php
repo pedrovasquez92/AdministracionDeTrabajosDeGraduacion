@@ -301,42 +301,42 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="treeview">
-              <a href="#">
+            <li class="active treeview">
+              <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="estados.php">
+            <li>
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
+              <a href="calendarioMenu.php?patron=">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php">
+              <a href="mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="#"><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -460,20 +460,6 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
-
-        <!-- Main content -->
-        <section class="content">
-
-        </section>
-
-        <!-- /.content -->
-      </div><!-- /.content-wrapper -->
-      <!--<footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
-      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
