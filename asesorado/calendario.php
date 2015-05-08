@@ -55,42 +55,6 @@
 
               <!-- Notifications: style can be found in dropdown.less -->
 
-                <ul class="dropdown-menu">
-                  <li class="header">You have 10 notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-red"></i> 5 new members joined
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-user text-red"></i> You changed your username
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
               <!-- Tasks: style can be found in dropdown.less -->
 
               <!-- User Account: style can be found in dropdown.less -->
@@ -153,7 +117,7 @@
 
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+         <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
               <a href="../asesorado/asesorado.php">
@@ -177,7 +141,6 @@
 
               </a>
             </li>
-
             <li><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
@@ -190,8 +153,8 @@
           <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Subida de Archivos
-            <small>   <!--aqui ba algo-->  </small>
+            Bienvenido
+
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -202,76 +165,24 @@
         <section class="content">
 
           <!-- Your Page Content Here -->
-             <div class="row">
-               <div class="col-md-6">
-                 <div class="info-box bg-green">
-                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
-                  <div class="info-box-content">
-                  <span class="info-box-text">Propuesta</span>
-                  <span class="info-box-number">Completado</span>
-                  <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                      </div>
-                  <span class="progress-description"><a href="#" style="color:white">Descargar enviado</a>
-              </span>
-            </div><!-- /.info-box-content -->
-          </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6">
-                 <div class="info-box bg-green">
-                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
-                  <div class="info-box-content">
-                  <span class="info-box-text">Protocolo</span>
-                  <span class="info-box-number">Completado</span>
-                  <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                      </div>
-                  <span class="progress-description"><a href="#" style="color:white">Descargar enviado</a>
-              </span>
-            </div><!-- /.info-box-content -->
-          </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6">
-                 <div class="info-box bg-green">
-                 <span class="info-box-icon"><i class="fa fa-check-circle"></i></span>
-                  <div class="info-box-content">
-                  <span class="info-box-text">Desarrollo</span>
-                  <span class="info-box-number">En Curso</span>
-                  <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                      </div>
-                  <span class="progress-description"><a href="../asesorado/informes_desarrollo.php" style="color:white">Informes</a>
-              </span>
-            </div><!-- /.info-box-content -->
-          </div><!-- /.info-box -->
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6">
-                 <div class="info-box bg-gray">
-                 <span class="info-box-icon"> <i class="fa fa-clock-o"></i> </i></span>
-                  <div class="info-box-content">
-                  <span class="info-box-text">Cuarto Informe</span>
-                  <span class="info-box-number">No enviado</span>
-                  <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                      </div>
-                      <input type="file" size="1" style="opacity: 0; position: absolute;" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-                      Subir
-                <!--  <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a> -->
 
-            </div><!-- /.info-box-content -->
-          </div><!-- /.info-box -->
-                </div>
-            </div>
+			<br><br>
+			<div class="text-center" >
+
+            <div class="col-md-9">
+              <div class="box box-primary">
+                <div class="box-body no-padding">
+                  <!-- THE CALENDAR -->
+                  <div id="calendar"></div>
+                </div><!-- /.box-body -->
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div>
+
+
 
         </section><!-- /.content -->
-        <!-- Content Header (Page header) -->
-        <!-- /.box -->
+      </div><!-- /.content-wrapper -->
 
 
         <!-- Main content -->
