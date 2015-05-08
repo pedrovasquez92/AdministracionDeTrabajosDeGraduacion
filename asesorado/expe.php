@@ -120,47 +120,38 @@
 
 
           <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+
+			<!-- sidebar menu: : style can be found in sidebar.less -->
+         <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-home"></i> <span>Escritorio</span>
+              <a href="../asesorado/asesorado.php">
+                <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-puzzle-piece"></i>
-                <span>Asignar Nuevo Trabajo</span>
-              </a>
-            </li>
-            <li class="active ">
-              <a href="estados.php">
-                <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <a href="../asesorado/subidafiles.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
-            <li>
-              <a href="facultad/calendarioMenu.php">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
+            <li class="active ">
+              <a href="../asesorado/informes_desarrollo.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
+              </a>
+            </li>
+             <li>
+              <a href="../asesorado/calendario.php">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
-            <li>
-              <a href="facultad/mensajeMenu.php">
-                <i class="fa fa-comments"></i> <span>Mensajes</span>
 
-              </a>
-            </li>
-
-            <li><a href="expedientes.php"><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
+
+
         </section>
         <!-- /.sidebar -->
       </aside>
