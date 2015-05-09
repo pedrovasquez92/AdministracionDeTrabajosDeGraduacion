@@ -123,17 +123,18 @@
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
-            <li class="treeview">
+			  <li class="active ">
               <a href="../asesorado/subidafiles.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="../asesorado/informes_desarrollo.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="../asesorado/informes_desarrollo.php">
-                <i class="fa fa-th"></i> <span>Etapas</span>
-              </a>
-            </li>
+
              <li>
               <a href="../asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
