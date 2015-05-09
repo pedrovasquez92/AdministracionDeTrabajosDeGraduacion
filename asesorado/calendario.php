@@ -1,32 +1,36 @@
 <!DOCTYPE html>
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuarioFacultad']))
+    {
+      header('Location: ../index.php');
+      exit();
+    }
+?>
+
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
+     <!-- Bootstrap 3.3.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- FontAwesome 4.3.0 -->
+    <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons 2.0.0 -->
+    <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar 2.2.5-->
+    <link href="../plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="../plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
-    <link href="../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="../plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Date Picker -->
-    <link href="../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-    <!-- Daterange picker -->
-    <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +40,10 @@
     <![endif]-->
   </head>
   <body class="skin-red">
+
+
+
+
 
 
     <div class="wrapper">
@@ -50,13 +58,9 @@
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
+
+           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-
-              <!-- Notifications: style can be found in dropdown.less -->
-
-              <!-- Tasks: style can be found in dropdown.less -->
-
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -68,22 +72,11 @@
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Facultad - Web Developer
+                      <?php echo $_SESSION['identificador']?>  - Facultad
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
@@ -94,6 +87,8 @@
                 </ul>
               </li>
             </ul>
+
+
           </div>
         </nav>
       </header>
@@ -124,52 +119,56 @@
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
-            <li class="treeview">
+			  <li class="active ">
               <a href="../asesorado/subidafiles.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="../asesorado/informes_desarrollo.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="../asesorado/informes_desarrollo.php">
-                <i class="fa fa-th"></i> <span>Etapas</span>
-              </a>
-            </li>
+
              <li>
               <a href="../asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
+
             <li><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
+
+
         </section>
         <!-- /.sidebar -->
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Bienvenido
-
+            Reuniones
+            <small>del Trabajo de Graduación</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Escritorio</a></li>
+            <li class="active">Reuniones</li>
           </ol>
         </section>
-          <!-- Main content -->
+
+
+        <!-- Main content -->
         <section class="content">
 
-          <!-- Your Page Content Here -->
 
-			<br><br>
-			<div class="text-center" >
+          <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-12">
               <div class="box box-primary">
                 <div class="box-body no-padding">
                   <!-- THE CALENDAR -->
@@ -180,65 +179,160 @@
           </div>
 
 
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
-
-        <!-- Main content -->
-        <section class="content">
-
         </section>
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <!--<footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
-      </footer>-->
+
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
     <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
-    <!-- jQuery UI 1.11.2 -->
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-      $.widget.bridge('uibutton', $.ui.button);
-    </script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- Morris.js charts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="../plugins/morris/morris.min.js" type="text/javascript"></script>
-    <!-- Sparkline -->
-    <script src="../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-    <!-- jvectormap -->
-    <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="../plugins/knob/jquery.knob.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-    <!-- datepicker -->
-    <script src="../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <!-- jQuery UI 1.11.1 -->
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Slimscroll -->
     <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
     <script src='../plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
     <script src="../dist/js/app.min.js" type="text/javascript"></script>
-
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js" type="text/javascript"></script>
-
     <!-- AdminLTE for demo purposes -->
+<!--
     <script src="../dist/js/demo.js" type="text/javascript"></script>
+-->
+    <!-- fullCalendar 2.2.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+    <script src="../plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+      $(function () {
+
+        /* initialize the external events
+         -----------------------------------------------------------------*/
+        function ini_events(ele) {
+          ele.each(function () {
+
+            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+            // it doesn't need to have a start or end
+            var eventObject = {
+              title: $.trim($(this).text()) // use the element's text as the event title
+            };
+
+            // store the Event Object in the DOM element so we can get to it later
+            $(this).data('eventObject', eventObject);
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+              zIndex: 1070,
+              revert: true, // will cause the event to go back to its
+              revertDuration: 0  //  original position after the drag
+            });
+
+          });
+        }
+        ini_events($('#external-events div.external-event'));
+
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+        //Date for the calendar events (dummy data)
+        var date = new Date();
+        var d = date.getDate(),
+                m = date.getMonth(),
+                y = date.getFullYear
+
+
+        $('#calendar').fullCalendar({
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          buttonText: {
+            today: 'Ahora',
+            month: 'Mes',
+            week: 'Semana',
+            day: 'Dia'
+          },
+          //Random default events
+          events: [
+
+              {
+              title: 'All Day Event',
+              start: new Date(2015, 0, 2),
+              backgroundColor: "#f56954", //red
+              borderColor: "#f56954" //red
+            },
+
+
+
+
+              //Lista de eventos
+
+          ],
+          editable: true,
+          droppable: true, // this allows things to be dropped onto the calendar !!!
+          drop: function (date, allDay) { // this function is called when something is dropped
+
+            // retrieve the dropped element's stored Event Object
+            var originalEventObject = $(this).data('eventObject');
+
+            // we need to copy it, so that multiple events don't have a reference to the same object
+            var copiedEventObject = $.extend({}, originalEventObject);
+
+            // assign it the date that was reported
+            copiedEventObject.start = date;
+            copiedEventObject.allDay = allDay;
+            copiedEventObject.backgroundColor = $(this).css("background-color");
+            copiedEventObject.borderColor = $(this).css("border-color");
+
+            // render the event on the calendar
+            // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+            // is the "remove after drop" checkbox checked?
+            if ($('#drop-remove').is(':checked')) {
+              // if so, remove the element from the "Draggable Events" list
+              $(this).remove();
+            }
+
+          }
+        });
+
+        /* ADDING EVENTS */
+        var currColor = "#3c8dbc"; //Red by default
+        //Color chooser button
+        var colorChooser = $("#color-chooser-btn");
+        $("#color-chooser > li > a").click(function (e) {
+          e.preventDefault();
+          //Save color
+          currColor = $(this).css("color");
+          //Add color effect to button
+          $('#add-new-event').css({"background-color": currColor, "border-color": currColor});
+        });
+        $("#add-new-event").click(function (e) {
+          e.preventDefault();
+          //Get value and make sure it is not null
+          var val = $("#new-event").val();
+          if (val.length == 0) {
+            return;
+          }
+
+          //Create events
+          var event = $("<div />");
+          event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
+          event.html(val);
+          $('#external-events').prepend(event);
+
+          //Add draggable funtionality
+          ini_events(event);
+
+          //Remove event from text input
+          $("#new-event").val("");
+        });
+      });
+    </script>
   </body>
 </html>
