@@ -14,13 +14,10 @@
 ?>
 
 
-<!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($_GET['id']);
+ $trabajoGraduacion = TrabajoGraduacion::recuperarTodos($_GET['patron']);
 ?>
--->
-
 
 <html>
   <head>
@@ -96,7 +93,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -145,7 +142,7 @@
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
@@ -157,7 +154,7 @@
 
               </a>
             </li>
-            <li class="active ">
+            <li>
               <a href="mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
@@ -176,12 +173,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Mensajes
-                <small>Trabajo de Graduacion</small>
+                Lista de Reuniones
+                <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
-                <li><a href="../facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Mensajes</li>
+                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
+                <li class="active">Reuniones</li>
               </ol>
         </section>
 
@@ -189,57 +186,57 @@
         <!-- Main content -->
         <section class="content">
 
+           <!--Formulario encargado de la busqueda.-->
+            <form method="get" action="calendarioMenu.php" >
 
-          <div class="box box-danger direct-chat direct-chat-danger">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Chat</h3>
-                  <div class="box-tools pull-right">
+            <div class="row">
+             <!--Select Box-->
+              <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Escoga el tipo de busqueda que desea realizar</label>
+                      <select class="form-control">
+                        <option>Nombre de trabajo</option>
+                        <!--<option>Nombre de asesor</option>
+                        <option>Nombre de asesorado</option>
+                        <option>Nombre de carrera</option>
+                        <option>Tipo de trabajos</option>-->
+                      </select>
+                 </div>
+                 <div class="input-group">
 
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-danger">Buscar</button>
+                    </div><!-- /btn-group -->
+                    <script src="funciones.js" type="text/javascript"></script>
+                    <input type="text" name="patron" id="txtbuscar" class="form-control">
                   </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
+
+                </div>
+
+            </div>
+            </form>
 
 
+            <br/>
+            <div id="wrapperContent" class="row">
 
-
-                <?php foreach($trabajoGraduacion as $item): ?>
-
-                <?php if ($item['usuario']==1): ?>
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
-                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
-                      </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                       <?php echo $item['Mensajecol']; ?>
-                      </div><!-- /.direct-chat-text -->
-                    </div>
-
-
-                <?php else: ?>
-                            <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
-                        <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
-                      </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        <?php echo $item['Mensajecol']; ?>
-                      </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-
-
-                <?php endif ?>
-
-
-                <?php endforeach; ?>
+<!--*************************************************************************************************************************-->
+               <?php foreach($trabajoGraduacion as $item): ?>
+                <div class="col-md-3">
+                      <div class="box box-danger box-solid">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><a href="revisiones.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                          <?php echo $item['descripcion']; ?>
+                        </div><!-- /.box-body -->
+                      </div><!-- /.box -->
+                </div>
+               <?php endforeach; ?>
+<!--*************************************************************************************************************************-->
 
 
 
@@ -250,15 +247,12 @@
 
 
 
+            </div>
 
 
-                  </div><!--/.direct-chat-messages-->
 
 
 
-                </div><!-- /.box-body -->
-                <!-- /.box-footer-->
-              </div>
 
         </section>
 

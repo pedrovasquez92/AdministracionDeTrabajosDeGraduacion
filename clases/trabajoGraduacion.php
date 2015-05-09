@@ -90,25 +90,38 @@
        $consulta->execute();
        $Conexion = null;
   }
-
-
-      public static function llenarComboboxCarrera(){
+  public static function llenarComboboxCarrera(){
        $Conexion = new Conectar();
        $consulta = $Conexion->prepare('SELECT Carrera FROM Carrera');
        $consulta->execute();
        $registros = $consulta->fetchAll();
        return $registros;
   }
-      public static function llenarTipoTrabajo(){
+  public static function llenarTipoTrabajo(){
        $Conexion = new Conectar();
        $consulta = $Conexion->prepare('SELECT Tipo_Trabajocol FROM Tipo_Trabajo');
        $consulta->execute();
        $registros = $consulta->fetchAll();
        return $registros;
   }
-
+  public static function recuperarEstados($id){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Estado_idEstado , idTrabajo_Graduacion FROM Trabajo_Graduacion
+       WHERE Trabajo_Graduacion.idTrabajo_Graduacion='.$id);
+       $consulta->bindParam(':patron', $patron);
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
+  public static function recuperarRevisiones($id){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Revision, Fecha FROM Revisiones
+       WHERE Trabajo_Graduacion_idTrabajo_Graduacion='.$id);
+       $consulta->bindParam(':patron', $patron);
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
 
  }
-
-
 ?>

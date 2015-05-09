@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+    if(!isset($_SESSION['usuarioFacultad']))
+    {
+      header('Location: ../index.php');
+      exit();
+    }
+?>
+
+
+<!--
+<?php
+ require_once '../clases/trabajoGraduacion.php';
+ $trabajoGraduacion = TrabajoGraduacion::recuperarEstados($_GET['id']);
+?>
+-->
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -301,7 +323,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -312,7 +334,7 @@
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
@@ -350,20 +372,57 @@
           <h1>
             Etapas
             <small>Porcentaje Completado</small>
-          </h1>
+          </h1><br>
+          <div class="row">
+              <div class="col-md-2">
+                  <ol class="breadcrumb">
+            <li><i class="fa fa-cog" style="color: #0066CC"> Desarrollo</i></li>
+
+                  </ol></div>
+          <div class="col-md-2">
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
+            <li><i class="fa fa-check-circle" style="color:green"> Finalizado</i></li>
+
           </ol>
+                  </div>
+                  <div class="col-md-2">
+           <ol class="breadcrumb">
+            <li><i class="fa fa-clock-o" style="color:gray"> No Iniciado</i></li>
+
+          </ol>
+              </div>
+            </div>
         </section>
           <!-- Main content -->
         <section class="content">
 
+
           <!-- Your Page Content Here -->
-            <div class="row">
+
+
+
+
+               <?php $a = $b = $c = $d = $a1 = $b1 = $c1 = $d1 = false;
+                foreach($trabajoGraduacion as $item): ?>
+            <?php if ($item['Estado_idEstado']==1)
+                    $a = true;
+                    else if ($item['Estado_idEstado']==2)
+                        $a1 = $b = true;
+                    else if ($item['Estado_idEstado'] > 2 && $item['Estado_idEstado']<10)
+                        $a1 = $b1 = $c = true;
+                    else if ($item['Estado_idEstado']== 10)
+                        $a1 = $b1 = $c1 = $d = true;
+                  ?>
+             <div class="row">
                 <div class="col-md-6">
                     <div class="info-box bg-white">
+                    <?php if ($a): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($a1): ?>
                    <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
                    <div class="info-box-content">
                    <span class="info-box-text">Primera Etapa</span>
                    <span class="info-box-number">Propuesta </span>
@@ -372,7 +431,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="info-box bg-white">
+                   <?php if ($b): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($b1): ?>
                    <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
                    <div class="info-box-content">
                    <span class="info-box-text">Segunta Etapa</span>
                    <span class="info-box-number">Plan de Trabajo o Protocolo</span>
@@ -382,9 +447,15 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                   <a  href="estadoDesarrollo.php">
+                  <a href="estadoDesarrollo.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>">
                        <div class="info-box bg-white">
+                   <?php if ($c): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($c1): ?>
                    <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
                    <div class="info-box-content">
                    <span class="info-box-text" style="color:black">Tercera Etapa</span>
                    <span class="info-box-number" style="color:black">Desarrollo </span>
@@ -395,7 +466,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="info-box bg-white">
+                   <?php if ($d): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($d1): ?>
+                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
                    <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
                    <div class="info-box-content">
                    <span class="info-box-text">Cuarta Etapa</span>
                    <span class="info-box-number">Informe Final</span>
@@ -403,6 +480,9 @@
                    </div><!-- /.info-box -->
                 </div>
             </div>
+
+                <?php endforeach; ?>
+
 
 
         </section><!-- /.content -->

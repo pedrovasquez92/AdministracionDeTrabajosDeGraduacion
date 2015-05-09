@@ -127,12 +127,12 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
-            <li class="treeview">
+            <li class=" active treeview">
               <a href="#">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>

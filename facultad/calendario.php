@@ -114,7 +114,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class=" treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -136,7 +136,7 @@
                 <span>Revisiones</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="calendarioMenu.php?patron=">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 

@@ -122,7 +122,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class=" treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -150,7 +150,7 @@
 
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="mensajeMenu.php?patron=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 

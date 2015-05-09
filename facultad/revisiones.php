@@ -17,14 +17,14 @@
 <!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($_GET['id']);
+ $trabajoGraduacion = TrabajoGraduacion::recuperarRevisiones($_GET['id']);
+
 ?>
 -->
 
-
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -51,7 +51,6 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -60,6 +59,7 @@
     <![endif]-->
   </head>
   <body class="skin-red">
+
 
     <div class="wrapper">
 
@@ -96,7 +96,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -130,41 +130,41 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="../facultad.php">
+              <a href="#">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
+              <a href="#">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li>
-              <a href="estadoMenu.php?patron=">
+            <li >
+              <a href="estados.php">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
-            <li>
-              <a href="revisionMenu.php?patron=">
+            <li class="active ">
+              <a href="#">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Calendario</span>
+              <a href="facultad/calendarioMenu.php">
+                <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
-            <li class="active ">
-              <a href="mensajeMenu.php?patron=">
+            <li>
+              <a href="facultad/mensajeMenu.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="#"><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -173,100 +173,61 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+          <!-- Content Header (Page header) -->
         <section class="content-header">
-              <h1>
-                Mensajes
-                <small>Trabajo de Graduacion</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="../facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Mensajes</li>
-              </ol>
+          <h1>
+            Revisiones
+            <small>Numero de Revisiones del Trabajo</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
         </section>
+          <!-- Main content -->
+        <section class="content">
+
+          <!-- Your Page Content Here -->
+
+
+
+          <?php foreach($trabajoGraduacion as $item): ?>
+                <div class="col-md-3">
+
+
+                    <div class="box box-solid bg-yellow">
+                    <div class="box-header">
+                    <h3 class="box-title" style="color:black"><?php echo $item['Revision']; ?></h3>
+                    </div>
+                    <div class="box-body" >
+                        <?php echo $item['Fecha']; ?>
+                    </div>
+                    </div>
+
+
+                </div>
+               <?php endforeach; ?>
+
+
+
+        </section><!-- /.content -->
+        <!-- Content Header (Page header) -->
+        <!-- /.box -->
 
 
         <!-- Main content -->
         <section class="content">
 
-
-          <div class="box box-danger direct-chat direct-chat-danger">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Chat</h3>
-                  <div class="box-tools pull-right">
-
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
-
-
-
-
-                <?php foreach($trabajoGraduacion as $item): ?>
-
-                <?php if ($item['usuario']==1): ?>
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
-                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
-                      </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                       <?php echo $item['Mensajecol']; ?>
-                      </div><!-- /.direct-chat-text -->
-                    </div>
-
-
-                <?php else: ?>
-                            <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
-                        <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
-                      </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        <?php echo $item['Mensajecol']; ?>
-                      </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-
-
-                <?php endif ?>
-
-
-                <?php endforeach; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-                  </div><!--/.direct-chat-messages-->
-
-
-
-                </div><!-- /.box-body -->
-                <!-- /.box-footer-->
-              </div>
-
         </section>
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-
-
-
+      <!--<footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
+      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
