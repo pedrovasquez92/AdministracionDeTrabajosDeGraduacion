@@ -1,16 +1,16 @@
 Bienvenidos al desarrollo de la aplicacion web
 Administracion de Trabajos de Graduacion !!
 
-ATG V1.7
--Se modifico estados
--Se modifico estadosDesarrollo
--Se creo revisiones
--Se arreglo las ventanas activas
+ATG V1.7<br>
+-Se modifico estados<br>
+-Se modifico estadosDesarrollo<br>
+-Se creo revisiones<br>
+-Se arreglo las ventanas activas<br>
 
 
-ATG V1.6
--Se agregaron los archivos de asesor
--Se agregaron los archivos de asesorado
+ATG V1.6<br>
+-Se agregaron los archivos de asesor<br>
+-Se agregaron los archivos de asesorado<br>
 
 
 ATG. V1.5<br>
