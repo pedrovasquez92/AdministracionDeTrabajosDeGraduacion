@@ -173,7 +173,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Lista de Reuniones
+                Lista de Calendarios
                 <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">

@@ -128,41 +128,41 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="#">
+              <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class=" active treeview">
-              <a href="#">
+              <a href="creacionTrabajos.php">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
             <li>
-              <a href="facultad/estadoMenu.php?=">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
             <li>
-              <a href="facultad/revisionMenu.php">
+              <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="facultad/calendarioMenu.php?patron=">
+              <a href="calendarioMenu.php?patron=">
                 <i class="fa fa-calendar"></i> <span>Reuniones</span>
 
               </a>
             </li>
             <li>
-              <a href="facultad/mensajeMenu.php?=">
+              <a href="mensajeMenu.php?patrn=">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
 
-            <li><a href="facultad/expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
