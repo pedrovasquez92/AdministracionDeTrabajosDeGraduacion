@@ -192,19 +192,22 @@
 
 
           <?php foreach($trabajoGraduacion as $item): ?>
-                <div class="col-md-3">
+               <div class="row">
+                <div class="col-md-12">
 
 
                     <div class="box box-solid bg-yellow">
                     <div class="box-header">
-                    <h3 class="box-title" style="color:black"><?php echo $item['Revision']; ?></h3>
+                    <h1 class="box-title" style="color:black"><?php echo $item['Titulo']; ?></h1> -
+                    <h3 class="box-title" style="color:black"><?php echo $item['Fecha']; ?></h3>
                     </div>
                     <div class="box-body" >
-                        <?php echo $item['Fecha']; ?>
+                        <?php echo $item['Revision']; ?>
                     </div>
                     </div>
 
 
+                </div>
                 </div>
                <?php endforeach; ?>
 

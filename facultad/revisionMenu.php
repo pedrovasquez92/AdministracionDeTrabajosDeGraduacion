@@ -221,7 +221,8 @@
             <div id="wrapperContent" class="row">
 
 <!--*************************************************************************************************************************-->
-               <?php foreach($trabajoGraduacion as $item): ?>
+           <?php foreach($trabajoGraduacion as $item): ?>
+
                 <div class="col-md-3">
                       <div class="box box-danger box-solid">
                         <div class="box-header with-border">

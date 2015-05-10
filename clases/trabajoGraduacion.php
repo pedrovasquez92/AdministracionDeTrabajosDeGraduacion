@@ -115,7 +115,7 @@
   }
   public static function recuperarRevisiones($id){
        $Conexion = new Conectar();
-       $consulta = $Conexion->prepare('SELECT Revision, Fecha FROM Revisiones
+       $consulta = $Conexion->prepare('SELECT Titulo, Revision, Fecha FROM Revisiones
        WHERE Trabajo_Graduacion_idTrabajo_Graduacion='.$id);
        $consulta->bindParam(':patron', $patron);
        $consulta->execute();
