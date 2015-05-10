@@ -123,7 +123,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -134,7 +134,7 @@
                 <span>Asignar Nuevo Trabajo</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="estadoMenu.php?patron=">
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
@@ -170,7 +170,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Lista de Reuniones
+                Lista de Estados
                 <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
@@ -216,11 +216,6 @@
 
             <br/>
             <div id="wrapperContent" class="row">
-
-
-
-
-
 
 <!--*************************************************************************************************************************-->
                <?php foreach($trabajoGraduacion as $item): ?>

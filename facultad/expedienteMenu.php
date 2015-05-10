@@ -123,7 +123,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -158,7 +158,7 @@
               </a>
             </li>
 
-            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+            <li class="active "><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
         </section>
@@ -170,7 +170,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Lista de Reuniones
+                Lista de Expendientes
                 <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">

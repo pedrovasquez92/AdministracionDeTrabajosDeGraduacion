@@ -1,14 +1,22 @@
 Bienvenidos al desarrollo de la aplicacion web
 Administracion de Trabajos de Graduacion !!
 
+ATG V1.7<br>
+-Se modifico estados<br>
+-Se modifico estadosDesarrollo<br>
+-Se creo revisiones<br>
+-Se arreglo las ventanas activas<br>
 
-ATG. V1.4<br>
+
+ATG V1.6<br>
+-Se agregaron los archivos de asesor<br>
+-Se agregaron los archivos de asesorado<br>
+
+
+ATG. V1.5<br>
 -Se agrego descripcion a la tabla "trabajo_graduacion"
 -Se creo el boton de  buscar con una respuesta GET
-![Alt text](/screenshots/loggeo.png "Nuevo mensaje de logueo")
-<br />
--Funcionando el calendario desde facultad
--Funcionando la vista del calendario sin interaccion por parte de facultad
+
 
 
 

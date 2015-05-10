@@ -67,9 +67,11 @@
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Iconos de navegacion</span>
+            <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
+
+           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
@@ -82,22 +84,23 @@
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Facultad - Web Developer
+                      <?php echo $_SESSION['identificador']?>  - Facultad
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
+
+
           </div>
         </nav>
       </header>
@@ -123,7 +126,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="../facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
@@ -139,7 +142,7 @@
                 <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="revisionMenu.php?patron=">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
@@ -170,7 +173,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Lista de Reuniones
+                Lista de Revisiones
                 <small>Segun Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
@@ -217,17 +220,13 @@
             <br/>
             <div id="wrapperContent" class="row">
 
-
-
-
-
-
 <!--*************************************************************************************************************************-->
-               <?php foreach($trabajoGraduacion as $item): ?>
+           <?php foreach($trabajoGraduacion as $item): ?>
+
                 <div class="col-md-3">
                       <div class="box box-danger box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
+                            <h3 class="box-title"><a href="revisiones.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
                           <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                           </div><!-- /.box-tools -->

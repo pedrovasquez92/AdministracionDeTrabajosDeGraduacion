@@ -127,12 +127,12 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="active treeview">
-              <a href="#">
+              <a href="facultad.php">
                 <i class="fa fa-home"></i> <span>Escritorio</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="facultad/creacionTrabajos.php">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>

@@ -1,27 +1,7 @@
 <!DOCTYPE html>
-
-<!--Verificacion de el inicio de sesion-->
-<?php
-    //creamos la sesion
-    session_start();
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuarioFacultad']))
-    {
-      header('Location: ../index.php');
-      exit();
-    }
-?>
-
-
-<?php
- require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarTodos($_GET['patron']);
-?>
-
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -48,7 +28,6 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,6 +36,7 @@
     <![endif]-->
   </head>
   <body class="skin-red">
+
 
     <div class="wrapper">
 
@@ -70,9 +50,13 @@
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
-
-           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+
+              <!-- Notifications: style can be found in dropdown.less -->
+
+              <!-- Tasks: style can be found in dropdown.less -->
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -84,11 +68,22 @@
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      <?php echo $_SESSION['identificador']?>  - Facultad
+                      Facultad - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
@@ -99,8 +94,6 @@
                 </ul>
               </li>
             </ul>
-
-
           </div>
         </nav>
       </header>
@@ -121,47 +114,35 @@
           </div>
           <!-- search form -->
 
-
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="../facultad.php">
-                <i class="fa fa-home"></i> <span>Escritorio</span>
+              <a href="../asesorado/asesorado.php">
+                <i class="fa fa-home"></i> <span>Inicio</span>
+              </a>
+            </li>
+			  <li class="active ">
+              <a href="../asesorado/subidafiles.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
-                <i class="fa fa-puzzle-piece"></i>
-                <span>Asignar Nuevo Trabajo</span>
-              </a>
-            </li>
-            <li>
-              <a href="estadoMenu.php?patron=">
-                <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
-              </a>
-            </li>
-            <li>
-              <a href="revisionMenu.php?patron=">
+              <a href="../asesorado/informes_desarrollo.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="calendarioMenu.php?patron=">
+
+             <li>
+              <a href="../asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
-            <li>
-              <a href="mensajeMenu.php?patron=">
-                <i class="fa fa-comments"></i> <span>Mensajes</span>
 
-              </a>
-            </li>
-
-            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
         </section>
@@ -170,102 +151,72 @@
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+          <!-- Content Header (Page header) -->
         <section class="content-header">
-              <h1>
-                Lista de Calendarios
-                <small>Segun Trabajo de Graduacion</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
-              </ol>
+          <h1>
+            Bienvenido
+
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
         </section>
+          <!-- Main content -->
+        <section class="content">
+
+          <!-- Your Page Content Here -->
+
+			<br><br><br><br><br><br><br><br>
+
+
+  <div class="text-center" opacity="1">
+  <div class="jumbotron">
+     <img src="../media/img/asesorado.png" class="text-center" alt="Cinque Terre" width="200px" height="180px" >
+
+    <h1>Trabajos De Graduacion</h1>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 
 
         <!-- Main content -->
         <section class="content">
 
-           <!--Formulario encargado de la busqueda.-->
-            <form method="get" action="calendarioMenu.php" >
-
-            <div class="row">
-             <!--Select Box-->
-              <div class="col-sm-4">
-                    <div class="form-group">
-                      <label>Escoga el tipo de busqueda que desea realizar</label>
-                      <select class="form-control">
-                        <option>Nombre de trabajo</option>
-                        <!--<option>Nombre de asesor</option>
-                        <option>Nombre de asesorado</option>
-                        <option>Nombre de carrera</option>
-                        <option>Tipo de trabajos</option>-->
-                      </select>
-                 </div>
-                 <div class="input-group">
-
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-danger">Buscar</button>
-                    </div><!-- /btn-group -->
-                    <script src="funciones.js" type="text/javascript"></script>
-                    <input type="text" name="patron" id="txtbuscar" class="form-control">
-                  </div>
-
-                </div>
-
-            </div>
-            </form>
-
-
-            <br/>
-            <div id="wrapperContent" class="row">
-
-
-
-
-
-
-<!--*************************************************************************************************************************-->
-               <?php foreach($trabajoGraduacion as $item): ?>
-                <div class="col-md-3">
-                      <div class="box box-danger box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
-                          <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          <?php echo $item['descripcion']; ?>
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
-                </div>
-               <?php endforeach; ?>
-<!--*************************************************************************************************************************-->
-
-
-
-
-
-
-
-
-
-
-            </div>
-
-
-
-
-
-
         </section>
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-
-
-
+      <!--<footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
+      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
