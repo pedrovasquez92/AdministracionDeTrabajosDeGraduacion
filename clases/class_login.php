@@ -69,6 +69,7 @@ class logueo
                 {
                     $_SESSION['usuarioAsesorado'] = $reg['Carnet'];
                     $_SESSION['identificador'] = $reg['Nombre'];
+					$_SESSION['idTrabajo'] = $reg["Trabajo_Graduacion_idTrabajo_Graduacion"];
                     header("Location:asesorado.php");
                 }else{
 
