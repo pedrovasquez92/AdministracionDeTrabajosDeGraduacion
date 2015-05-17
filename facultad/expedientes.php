@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <!--Verificacion de el inicio de sesion-->
 <?php
     //creamos la sesion
@@ -14,14 +13,18 @@
 ?>
 
 
+<!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarTodos($_GET['patron']);
+ $trabajoGraduacion = TrabajoGraduacion::recuperarExpedientes($_GET['id']);
+
 ?>
+-->
+
 
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -32,6 +35,8 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -49,6 +54,7 @@
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,6 +63,7 @@
     <![endif]-->
   </head>
   <body class="skin-red">
+
 
     <div class="wrapper">
 
@@ -67,9 +74,11 @@
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Iconos de navegacion</span>
+            <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
+
+           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
@@ -82,22 +91,23 @@
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Facultad - Web Developer
+                      <?php echo $_SESSION['identificador']?>  - Facultad
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
+
+
           </div>
         </nav>
       </header>
@@ -120,8 +130,9 @@
 
 
           <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+
+			<!-- sidebar menu: : style can be found in sidebar.less -->
+         <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
               <a href="../facultad.php">
@@ -129,7 +140,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="creacionTrabajos.php">
+              <a href="estadoMenu.php?patron=">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
@@ -145,7 +156,7 @@
                 <span>Revisiones</span>
               </a>
             </li>
-            <li>
+            <li class="active ">
               <a href="calendarioMenu.php?patron=">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
@@ -158,95 +169,52 @@
               </a>
             </li>
 
-            <li class="active "><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
 
           </ul>
+
+
         </section>
         <!-- /.sidebar -->
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+              <!-- Content Header (Page header) -->
         <section class="content-header">
-              <h1>
-                Lista de Expendientes
-                <small>Segun Trabajo de Graduacion</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
-              </ol>
+          <h1>
+            Expedientes
+
+          </h1>
+
+
         </section>
+          <!-- Main content -->
+
+           <section class="content">
 
 
-        <!-- Main content -->
-        <section class="content">
+            <div class="modal-body">
+               <?php foreach($trabajoGraduacion as $item): ?>
 
-           <!--Formulario encargado de la busqueda.-->
-            <form method="get" action="calendarioMenu.php" >
+                <div class="form-group">
+                    <div class="input-group">
+                    <span class="input-group-addon">Codigo:</span>
+                    <input name="email_to" type="text" value="<?php echo $item['idExpediente']; ?> - <?php echo $item['Fecha']; ?> " class="form-control" >
+                    </div>
+                </div>
 
-            <div class="row">
-             <!--Select Box-->
-              <div class="col-sm-4">
-                    <div class="form-group">
-                      <label>Escoga el tipo de busqueda que desea realizar</label>
-                      <select class="form-control">
-                        <option>Nombre de trabajo</option>
-                        <!--<option>Nombre de asesor</option>
-                        <option>Nombre de asesorado</option>
-                        <option>Nombre de carrera</option>
-                        <option>Tipo de trabajos</option>-->
-                      </select>
-                 </div>
-                 <div class="input-group">
-
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-danger">Buscar</button>
-                    </div><!-- /btn-group -->
-                    <script src="funciones.js" type="text/javascript"></script>
-                    <input type="text" name="patron" id="txtbuscar" class="form-control">
-                  </div>
+                <div class="form-group">
+                <div class="btn btn-success btn-file">
+                <i class="fa  fa-download"></i>
+                    <a style="color: white" href="<?php echo $item['Expediente']; ?>" download>
+                        Descargar Expediente
+                    </a>
 
                 </div>
 
-            </div>
-            </form>
-
-
-            <br/>
-            <div id="wrapperContent" class="row">
-
-
-
-
-
-
-<!--*************************************************************************************************************************-->
-               <?php foreach($trabajoGraduacion as $item): ?>
-                <div class="col-md-3">
-                      <div class="box box-danger box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><a href="expedientes.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
-                          <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          <?php echo $item['descripcion']; ?>
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
                 </div>
                <?php endforeach; ?>
-<!--*************************************************************************************************************************-->
-
-
-
-
-
-
-
-
 
 
             </div>
@@ -254,15 +222,18 @@
 
 
 
+          </section>
 
-
-        </section>
+            <!-- HASTA AQUI TERMINO -->
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-
-
-
+      <!--<footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
+      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
