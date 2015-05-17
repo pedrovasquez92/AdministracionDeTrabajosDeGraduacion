@@ -64,6 +64,42 @@
           return false;
        }
     }
+
+    public static function TrabajosFinalizados(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(titulo) as dato FROM `Trabajo_Graduacion` WHERE Estado_idEstado = 10');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+    public static function TrabajosDesarrollo(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(titulo) as dato FROM `Trabajo_Graduacion` WHERE Estado_idEstado >2 and Estado_idEstado <10');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+    public static function TrabajosAsesorados(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(Carnet) as dato FROM `Asesorado`');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+    public static function TrabajosAsesor(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(NIT_Asesor) as dato FROM `Asesor`');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+
+
+
   public static function recuperarTodos($patron){
        $Conexion = new Conectar();
        $consulta = $Conexion->prepare('SELECT idTrabajo_Graduacion, titulo, descripcion FROM ' . self::TABLA . ' WHERE titulo LIKE "' .$patron .'%"');
@@ -122,6 +158,17 @@
        $registros = $consulta->fetchAll();
        return $registros;
   }
+
+  public static function recuperarExpedientes($id){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Expediente, idExpediente, Fecha FROM expediente
+       WHERE Trabajo_Graduacion_idTrabajo_Graduacion='.$id);
+       $consulta->bindParam(':patron', $patron);
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
+
 
  }
 ?>

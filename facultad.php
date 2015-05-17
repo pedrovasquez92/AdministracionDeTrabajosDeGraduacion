@@ -15,6 +15,13 @@
 ?>
 <!--*************************************-->
 
+<?php
+ require_once 'clases/trabajoGraduacion.php';
+    $trabajosFinalizados = TrabajoGraduacion::TrabajosFinalizados();
+    $trabajosDesarrollo = TrabajoGraduacion::TrabajosDesarrollo();
+    $trabajosAsesorados = TrabajoGraduacion::TrabajosAsesorados();
+    $trabajosAsesor = TrabajoGraduacion::TrabajosAsesor();
+?>
 
 
 <html>
@@ -76,13 +83,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <img src="dist/img/facultad.png" class="user-image" alt="User Image"/>
                   <span class="hidden-xs">Facultad</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="dist/img/facultad.png" class="img-circle" alt="User Image" />
                     <p>
                       <?php echo $_SESSION['identificador']?>  - Facultad
                       <small>Member since Nov. 2012</small>
@@ -111,7 +118,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="dist/img/facultad.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p><?php echo $_SESSION['identificador']?></p>
@@ -180,7 +187,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>15</h3>
+                  <h3><?php echo $trabajosDesarrollo['dato']; ?></h3>
                   <p>Trabajos en desarrollo</p>
                 </div>
                 <div class="icon">
@@ -194,7 +201,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>40</h3>
+                  <h3><?php echo $trabajosFinalizados['dato']; ?></h3>
                   <p>Trabajos Terminados</p>
                 </div>
                 <div class="icon">
@@ -211,7 +218,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3><?php echo $trabajosAsesorados['dato']; ?></h3>
                   <p>Asesorados</p>
                 </div>
                 <div class="icon">
@@ -224,7 +231,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>10</h3>
+                  <h3><?php echo $trabajosAsesor['dato']; ?></h3>
                   <p>Asesores</p>
                 </div>
                 <div class="icon">
