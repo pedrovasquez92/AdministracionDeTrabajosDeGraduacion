@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-<!--Verificacion de el inicio de sesion-->
 <?php
     //creamos la sesion
     session_start();
@@ -11,16 +10,18 @@
 
     if(!isset($_SESSION['usuarioAsesorado']))
     {
-      header('Location:../index.php');
+      header('Location:index.php');
       exit();
     }
 ?>
 
 
 <?php
- require_once '../clases/trabajoGraduacion.php';
+ require_once 'clases/trabajoGraduacion.php';
 $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
+$trabajo =  $trabajoGraduacion['titulo']."";
 ?>
+
 
 
 <html>
@@ -29,32 +30,28 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.0 -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-
-
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
-    <link href="../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="../plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Date Picker -->
-    <link href="../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
-
-
+    <link href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,22 +75,26 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
-
-           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+
+              <!-- Notifications: style can be found in dropdown.less -->
+
+              <!-- Tasks: style can be found in dropdown.less -->
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                   <span class="hidden-xs">Asesorado</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       <?php echo $_SESSION['identificador']?>  - Asesorado
-                      <small><?php echo $trabajoGraduacion['titulo'] ; ?> </small>
+                      <small> <?php echo $trabajo; ?> </small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -102,14 +103,12 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
-
-
           </div>
         </nav>
       </header>
@@ -120,7 +119,7 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>Asesorado</p>
@@ -130,151 +129,78 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
           </div>
           <!-- search form -->
 
-
           <!-- /.search form -->
-
-			<!-- sidebar menu: : style can be found in sidebar.less -->
-         <ul class="sidebar-menu">
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="treeview">
-              <a href="../asesorado.php">
+            <li class="active">
+              <a href="asesorado.php">
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
 			  <li class="treeview">
-              <a href="../asesorado/subidafiles.php">
+              <a href="asesorado/subidafiles.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
             <li class="treeview">
-            <a href="../asesorado/revisiones.php">
+              <a href="asesorado/revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
 
              <li>
-              <a href="../asesorado/calendario.php">
+              <a href="asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
 
-            <li class="active"><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
+            <li><a href="asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
-
-
         </section>
         <!-- /.sidebar -->
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-              <!-- Content Header (Page header) -->
+          <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Expedientes
+            Bienvenido
 
           </h1>
-			 <ol class="breadcrumb">
-            <li><a href="../asesorado.php"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Expediente</li>   </ol>
-
+          <ol class="breadcrumb">
+            <li><a href="asesorado.php"><i class="fa fa-dashboard"></i>Inicio</a></li>
+          </ol>
         </section>
           <!-- Main content -->
+        <section class="content">
 
-           <section class="content">
+          <!-- Your Page Content Here -->
 
-
-
-<form action="#" method="post">
-
-
-<div class="modal-body">
-<div class="form-group">
-<div class="input-group">
-<span class="input-group-addon">Codigo:</span>
-<input name="email_to" type="text" class="form-control" >
+			<br><br><br><br><br><br><br><br>
 
 
-</div>
-</div>
+  <div class="text-center" opacity="1">
+  <div class="jumbotron">
+     <img src="media/img/asesorado.png" class="text-center" alt="Cinque Terre" width="200px" height="180px" >
 
-<div class="form-group">
-<div class="btn btn-success btn-file">
-<i class="fa  fa-download"></i> Descargar
-<input type="file" name="attachment"/>
-</div>
+    <h1> <?php echo $trabajo; ?>  - Asesorado </h1>
+
+  </div>
 
 </div>
-
-    <div class="form-group">
-<div class="input-group">
-<span class="input-group-addon">Codigo:</span>
-<input name="email_to" type="text" class="form-control" >
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 
 
-</div>
-</div>
+        <!-- Main content -->
+        <section class="content">
 
-<div class="form-group">
-<div class="btn btn-success btn-file">
-<i class="fa  fa-download"></i> Descargar
-<input type="file" name="attachment"/>
-</div>
-
-</div>
-
-
-    <div class="form-group">
-<div class="input-group">
-<span class="input-group-addon">Codigo:</span>
-<input name="email_to" type="text" class="form-control" >
-
-
-</div>
-</div>
-
-<div class="form-group">
-<div class="btn btn-success btn-file">
-<i class="fa  fa-download"></i> Descargar
-<input type="file" name="attachment"/>
-</div>
-
-</div>
-
-      <div class="form-group">
-<div class="input-group">
-<span class="input-group-addon">Codigo:</span>
-<input name="email_to" type="text" class="form-control" >
-
-
-</div>
-</div>
-
-<div class="form-group">
-<div class="btn btn-success btn-file">
-<i class="fa  fa-download"></i> Descargar
-<input type="file" name="attachment"/>
-</div>
-
-</div>
-
-
-
-    <br/>
-
-</div>
-
-</form>
-
-
-</div>
-
-          </section>
-
-            <!-- HASTA AQUI TERMINO -->
+        </section>
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
@@ -287,7 +213,7 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
-    <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- jQuery UI 1.11.2 -->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -295,31 +221,31 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="../plugins/morris/morris.min.js" type="text/javascript"></script>
+    <script src="plugins/morris/morris.min.js" type="text/javascript"></script>
     <!-- Sparkline -->
-    <script src="../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
     <!-- jvectormap -->
-    <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
     <!-- jQuery Knob Chart -->
-    <script src="../plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <script src="plugins/knob/jquery.knob.js" type="text/javascript"></script>
     <!-- daterangepicker -->
-    <script src="../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
     <!-- datepicker -->
-    <script src="../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Bootstrap WYSIHTML5 -->
-    <script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-    <!-- iCheck -->
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <!-- iCheck ->
     <script src="../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='../plugins/fastclick/fastclick.min.js'></script>
+    <script src='plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="dist/js/app.min.js" type="text/javascript"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../dist/js/pages/dashboard.js" type="text/javascript"></script>

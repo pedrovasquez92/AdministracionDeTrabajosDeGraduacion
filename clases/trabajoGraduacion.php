@@ -169,6 +169,15 @@
        return $registros;
   }
 
+public static function buscarPorIdAsesorado($id){
+      $Conexion = new Conectar();
+      $consulta = $Conexion->prepare('SELECT titulo, descripcion FROM ' . self::TABLA . ' WHERE idTrabajo_Graduacion = :id');
+      $consulta->bindParam(':id', $id);
+      $consulta->execute();
+      $registro = $consulta->fetch();
+      return $registro;
+}
+
 
  }
 ?>

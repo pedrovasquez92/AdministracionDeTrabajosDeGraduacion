@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<!--Verificacion de el inicio de sesion-->
+<?php
+    //creamos la sesion
+    session_start();
+    $id =  $_SESSION['idTrabajo'];
+    //validamos si se ha hecho o no el inicio de sesion correctamente
+    //si no se ha hecho la sesion nos regresará a login.php
+
+    if(!isset($_SESSION['usuarioAsesorado']))
+    {
+      header('Location:../index.php');
+      exit();
+    }
+?>
+
+
+<?php
+ require_once '../clases/trabajoGraduacion.php';
+$trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
+?>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -50,50 +71,38 @@
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
+
+           <!--Cuadro superior de usuarios-->
             <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-
-              <!-- Notifications: style can be found in dropdown.less -->
-
-              <!-- Tasks: style can be found in dropdown.less -->
-
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Facultad</span>
+                  <span class="hidden-xs">Asesorado</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Facultad - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <?php echo $_SESSION['identificador']?>  - Asesorado
+                      <small><?php echo $trabajoGraduacion['titulo'] ; ?> </small>
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
+
+
           </div>
         </nav>
       </header>
@@ -107,7 +116,7 @@
               <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Facultad</p>
+              <p>Asesorado</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -120,17 +129,17 @@
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="../asesorado/asesorado.php">
+              <a href="../asesorado.php">
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
-			  <li class="active ">
+			  <li class="active" >
               <a href="../asesorado/subidafiles.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="../asesorado/informes_desarrollo.php">
+              <a href="../asesorado/revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
@@ -159,8 +168,9 @@
             <small>Seguimiento en linea</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
+            <li><a href="../asesorado.php"><i class="fa fa-dashboard"></i>Inicio</a></li>
+		   <li><a href="../asesorado/subidafiles.php"><i ></i>Etapas</a></li>
+            <li >Informes de Desarrollo</li>
           </ol>
         </section>
           <!-- Main content -->

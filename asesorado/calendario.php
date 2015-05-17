@@ -3,14 +3,24 @@
 <?php
     //creamos la sesion
     session_start();
+    $id =  $_SESSION['idTrabajo'];
     //validamos si se ha hecho o no el inicio de sesion correctamente
     //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuarioFacultad']))
+
+    if(!isset($_SESSION['usuarioAsesorado']))
     {
-      header('Location: ../index.php');
+      header('Location:../index.php');
       exit();
     }
 ?>
+
+
+<?php
+ require_once '../clases/trabajoGraduacion.php';
+$trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
+?>
+
+
 
 <html>
   <head>
@@ -65,23 +75,24 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Facultad</span>
+                  <span class="hidden-xs">Asesorado</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      <?php echo $_SESSION['identificador']?>  - Facultad
-                      <small>Member since Nov. 2012</small>
+                      <?php echo $_SESSION['identificador']?>  - Asesorado
+                      <small><?php echo $trabajoGraduacion['titulo'] ; ?> </small>
                     </p>
                   </li>
+                  <!-- Menu Body -->
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -102,7 +113,7 @@
               <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Facultad</p>
+              <p>Asesorado</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -115,23 +126,23 @@
          <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
             <li class="treeview">
-              <a href="../asesorado/asesorado.php">
+              <a href="../asesorado.php">
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
-			  <li class="active ">
+			 <li class="treeview">
               <a href="../asesorado/subidafiles.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="../asesorado/informes_desarrollo.php">
+             <a href="../asesorado/revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
 
-             <li>
+             <li class="active" >
               <a href="../asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
@@ -156,8 +167,8 @@
             <small>del Trabajo de Graduación</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-            <li class="active">Reuniones</li>
+            <li><a href="../asesorado.php"><i class="fa fa-dashboard"></i>Inicio</a></li>
+            <li class="active">Calendario</li>
           </ol>
         </section>
 
