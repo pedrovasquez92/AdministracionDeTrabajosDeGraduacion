@@ -132,7 +132,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
+              <a href="creacionTrabajos.php">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
