@@ -64,15 +64,38 @@
           return false;
        }
     }
-	 public static function buscarPorIdAsesorado($id){
+
+    public static function TrabajosFinalizados(){
        $Conexion = new Conectar();
-       $consulta = $Conexion->prepare('SELECT titulo, descripcion FROM ' . self::TABLA . ' WHERE idTrabajo_Graduacion = :id');
-       $consulta->bindParam(':id', $id);
+       $consulta = $Conexion->prepare('SELECT count(titulo) as dato FROM `Trabajo_Graduacion` WHERE Estado_idEstado = 10');
        $consulta->execute();
        $registro = $consulta->fetch();
        return $registro;
     }
 
+    public static function TrabajosDesarrollo(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(titulo) as dato FROM `Trabajo_Graduacion` WHERE Estado_idEstado >2 and Estado_idEstado <10');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+    public static function TrabajosAsesorados(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(Carnet) as dato FROM `Asesorado`');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
+
+    public static function TrabajosAsesor(){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT count(NIT_Asesor) as dato FROM `Asesor`');
+       $consulta->execute();
+       $registro = $consulta->fetch();
+       return $registro;
+    }
 
 
 
@@ -135,6 +158,26 @@
        $registros = $consulta->fetchAll();
        return $registros;
   }
+
+  public static function recuperarExpedientes($id){
+       $Conexion = new Conectar();
+       $consulta = $Conexion->prepare('SELECT Expediente, idExpediente, Fecha FROM expediente
+       WHERE Trabajo_Graduacion_idTrabajo_Graduacion='.$id);
+       $consulta->bindParam(':patron', $patron);
+       $consulta->execute();
+       $registros = $consulta->fetchAll();
+       return $registros;
+  }
+
+public static function buscarPorIdAsesorado($id){
+      $Conexion = new Conectar();
+      $consulta = $Conexion->prepare('SELECT titulo, descripcion FROM ' . self::TABLA . ' WHERE idTrabajo_Graduacion = :id');
+      $consulta->bindParam(':id', $id);
+      $consulta->execute();
+      $registro = $consulta->fetch();
+      return $registro;
+}
+
 
  }
 ?>

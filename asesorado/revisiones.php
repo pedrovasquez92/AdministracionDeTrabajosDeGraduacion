@@ -131,31 +131,31 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="treeview">
+            <li class="active">
               <a href="../asesorado.php">
                 <i class="fa fa-home"></i> <span>Inicio</span>
               </a>
             </li>
 			  <li class="treeview">
-              <a href="../asesorado/subidafiles.php">
+              <a href="estados.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
-            <li class="active">
-             <a href="../asesorado/revisiones.php">
+            <li class="treeview">
+              <a href="revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
 
              <li>
-              <a href="../asesorado/calendario.php">
+              <a href="calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
 
               </a>
             </li>
 
-            <li><a href="../asesorado/expe.php"><i class="fa fa-book"></i>Expediente</a></li>
+            <li><a href="expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
         </section>

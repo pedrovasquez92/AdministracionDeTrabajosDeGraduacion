@@ -30,7 +30,7 @@ $trabajo =  $trabajoGraduacion['titulo']."";
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.0 -->
@@ -139,7 +139,7 @@ $trabajo =  $trabajoGraduacion['titulo']."";
               </a>
             </li>
 			  <li class="treeview">
-              <a href="asesorado/subidafiles.php">
+              <a href="asesorado/estados.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
