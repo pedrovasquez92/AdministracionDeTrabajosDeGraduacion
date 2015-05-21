@@ -139,7 +139,7 @@ $trabajo =  $trabajoGraduacion['titulo']."";
               </a>
             </li>
 			  <li class="treeview">
-              <a href="asesorado/subidafiles.php">
+              <a href="asesorado/estados.php">
                 <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>

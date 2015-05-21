@@ -15,17 +15,17 @@
     }
 ?>
 
-
+<!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
-$trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
+ $trabajoGraduacion = TrabajoGraduacion::recuperarEstados($id);
 ?>
-
+-->
 
 
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -52,7 +52,6 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -61,6 +60,7 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
     <![endif]-->
   </head>
   <body class="skin-red">
+
 
     <div class="wrapper">
 
@@ -89,10 +89,9 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       <?php echo $_SESSION['identificador']?>  - Asesorado
-                      <small><?php echo $trabajoGraduacion['titulo'] ; ?> </small>
+                      <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
@@ -119,7 +118,7 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
               <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Asesorado</p>
+              <p>Facultad</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -164,102 +163,139 @@ $trabajoGraduacion = TrabajoGraduacion::buscarPorIdAsesorado($id);
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+          <!-- Content Header (Page header) -->
         <section class="content-header">
-              <h1>
-                Lista de Calendarios
-                <small>Segun Trabajo de Graduacion</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
-              </ol>
+          <h1>
+            Etapas
+            <small>Porcentaje Completado</small>
+          </h1><br>
+          <div class="row">
+              <div class="col-md-2">
+                  <ol class="breadcrumb">
+            <li><i class="fa fa-cog" style="color: #0066CC"> Desarrollo</i></li>
+
+                  </ol></div>
+          <div class="col-md-2">
+          <ol class="breadcrumb">
+            <li><i class="fa fa-check-circle" style="color:green"> Finalizado</i></li>
+
+          </ol>
+                  </div>
+                  <div class="col-md-2">
+           <ol class="breadcrumb">
+            <li><i class="fa fa-clock-o" style="color:gray"> No Iniciado</i></li>
+
+          </ol>
+              </div>
+            </div>
         </section>
-
-
-        <!-- Main content -->
+          <!-- Main content -->
         <section class="content">
 
-           <!--Formulario encargado de la busqueda.-->
-            <form method="get" action="calendarioMenu.php" >
 
+          <!-- Your Page Content Here -->
+
+
+
+
+               <?php $a = $b = $c = $d = $a1 = $b1 = $c1 = $d1 = false;
+                foreach($trabajoGraduacion as $item): ?>
+            <?php if ($item['Estado_idEstado']==1)
+                    $a = true;
+                    else if ($item['Estado_idEstado']==2)
+                        $a1 = $b = true;
+                    else if ($item['Estado_idEstado'] > 2 && $item['Estado_idEstado']<10)
+                        $a1 = $b1 = $c = true;
+                    else if ($item['Estado_idEstado']== 10)
+                        $a1 = $b1 = $c1 = $d = true;
+                  ?>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="info-box bg-white">
+                    <?php if ($a): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($a1): ?>
+                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
+                   <div class="info-box-content">
+                   <span class="info-box-text">Primera Etapa</span>
+                   <span class="info-box-number">Propuesta </span>
+                   <span class="progress-description"><a href="#" style="color:white">Link de Descarga</a></span>
+                   </div><!-- /.info-box-content -->
+                   </div><!-- /.info-box -->
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box bg-white">
+                   <?php if ($b): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($b1): ?>
+                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
+                   <div class="info-box-content">
+                   <span class="info-box-text">Segunta Etapa</span>
+                   <span class="info-box-number">Plan de Trabajo o Protocolo</span>
+                   </div><!-- /.info-box-content -->
+                   </div><!-- /.info-box -->
+                </div>
+            </div>
             <div class="row">
-             <!--Select Box-->
-              <div class="col-sm-4">
-                    <div class="form-group">
-                      <label>Escoga el tipo de busqueda que desea realizar</label>
-                      <select class="form-control">
-                        <option>Nombre de trabajo</option>
-                        <!--<option>Nombre de asesor</option>
-                        <option>Nombre de asesorado</option>
-                        <option>Nombre de carrera</option>
-                        <option>Tipo de trabajos</option>-->
-                      </select>
-                 </div>
-                 <div class="input-group">
-
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-danger">Buscar</button>
-                    </div><!-- /btn-group -->
-                    <script src="funciones.js" type="text/javascript"></script>
-                    <input type="text" name="patron" id="txtbuscar" class="form-control">
-                  </div>
+                <div class="col-md-6">
+                  <a href="estadoDesarrollo.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>">
+                       <div class="info-box bg-white">
+                   <?php if ($c): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($c1): ?>
+                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
+                   <div class="info-box-content">
+                   <span class="info-box-text" style="color:black">Tercera Etapa</span>
+                   <span class="info-box-number" style="color:black">Desarrollo </span>
+                   </div><!-- /.info-box-content -->
+                   </div><!-- /.info-box -->
+                   </a>
 
                 </div>
-
-            </div>
-            </form>
-
-
-            <br/>
-            <div id="wrapperContent" class="row">
-
-
-
-
-
-
-<!--*************************************************************************************************************************-->
-               <!-- <//?php// foreach($trabajoGraduacion as $item): ?>
-                <div class="col-md-3">
-                      <div class="box box-danger box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php // echo $item['idTrabajo_Graduacion']; ?>"><?php //echo $item['titulo']; ?></a></h3>
-                          <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                         <?php //echo $item['descripcion']; ?>
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
+                <div class="col-md-6">
+                    <div class="info-box bg-white">
+                   <?php if ($d): ?>
+                   <span class="info-box-icon bg-blue"><i class="fa fa-cog"></i></span>
+                   <?php elseif ($d1): ?>
+                   <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+                   <?php else: ?>
+                   <span class="info-box-icon bg-gray"><i class="fa fa-clock-o"></i></span>
+                   <?php endif ?>
+                   <div class="info-box-content">
+                   <span class="info-box-text">Cuarta Etapa</span>
+                   <span class="info-box-number">Informe Final</span>
+                   </div><!-- /.info-box-content -->
+                   </div><!-- /.info-box -->
                 </div>
-               <?php //endforeach; ?>
-<!--*************************************************************************************************************************-->
-
-
-
-
-
-
-
-
-
-
             </div>
 
+                <?php endforeach; ?>
 
 
 
+        </section><!-- /.content -->
+        <!-- Content Header (Page header) -->
+        <!-- /.box -->
 
 
-        </section>
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-
-
-
+      <!--<footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
+      </footer>-->
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
