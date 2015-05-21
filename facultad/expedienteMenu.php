@@ -129,7 +129,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
+              <a href="creacionTrabajos.php">
                 <i class="fa fa-puzzle-piece"></i>
                 <span>Asignar Nuevo Trabajo</span>
               </a>
@@ -227,7 +227,7 @@
                 <div class="col-md-3">
                       <div class="box box-danger box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><a href="calendario.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
+                            <h3 class="box-title"><a href="expedientes.php?id=<?php echo $item['idTrabajo_Graduacion']; ?>"><?php echo $item['titulo']; ?></a></h3>
                           <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                           </div><!-- /.box-tools -->
