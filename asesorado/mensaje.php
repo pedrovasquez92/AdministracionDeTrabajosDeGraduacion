@@ -4,26 +4,42 @@
 <?php
     //creamos la sesion
     session_start();
+    $id =  $_SESSION['idTrabajo'];
     //validamos si se ha hecho o no el inicio de sesion correctamente
     //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuarioFacultad']))
+    if(!isset($_SESSION['usuarioAsesorado']))
     {
-      header('Location: ../index.php');
+      header('Location:../index.php');
       exit();
     }
 ?>
 
 
+<!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $llenarComboboxCarrera= TrabajoGraduacion::llenarComboboxCarrera();
- $llenarTipoTrabajo = TrabajoGraduacion::llenarTipoTrabajo();
-?>
 
+$ultimoMensaje = TrabajoGraduacion::recuperarUltimoMensaje($id);
+
+$mensajeAnterior = $ultimoMensaje['Mensajecol'];
+$mensajeEscribir = $_POST['mensaje'];
+
+if( trim($mensajeEscribir )!=""){
+if(trim($mensajeAnterior) != trim($mensajeEscribir))
+    {
+      $remitente = $_SESSION['identificador'];
+      $trabajoGraduacionInsertar = TrabajoGraduacion::escribirMensajeAsesorado($id,$mensajeEscribir,$remitente);
+      unset($_POST['mensaje']);
+    }
+}
+ $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($id);
+
+?>
+-->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Creacion de trabajos de graduación | Unicaes</title>
+    <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -94,7 +110,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -127,42 +143,36 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
+            <li class="active">
+              <a href="../asesorado.php">
+                <i class="fa fa-home"></i> <span>Inicio</span>
+              </a>
+            </li>
+			  <li class="treeview">
+              <a href="estados.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
+              </a>
+            </li>
             <li class="treeview">
-              <a href="../facultad.php">
-                <i class="fa fa-home"></i> <span>Escritorio</span>
-              </a>
-            </li>
-            <li class=" active treeview">
-              <a href="creacionTrabajos.php">
-                <i class="fa fa-puzzle-piece"></i>
-                <span>Asignar Nuevo Trabajo</span>
-              </a>
-            </li>
-            <li>
-              <a href="estadoMenu.php?patron=">
-                <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
-              </a>
-            </li>
-            <li>
-              <a href="revisionMenu.php?patron=">
+              <a href="revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
             <li>
-              <a href="calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Reuniones</span>
-
-              </a>
-            </li>
-            <li>
-              <a href="mensajeMenu.php?patrn=">
+              <a href="mensaje.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
+             <li>
+              <a href="calendario.php">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
-            <li><a href="expedienteMenu.php?="><i class="fa fa-book"></i> Expediente</a></li>
+              </a>
+            </li>
+
+            <li><a href="expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
         </section>
@@ -174,120 +184,99 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
               <h1>
-                Creacion de Nuevo Trabajo
-                <small>Segun Trabajo de Graduacion</small>
+                Mensajes
+                <small>Trabajo de Graduacion</small>
               </h1>
               <ol class="breadcrumb">
-                <li><a href="facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
-                <li class="active">Reuniones</li>
+                <li><a href="../facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
+                <li class="active">Mensajes</li>
               </ol>
         </section>
 
 
-<!-- Main content -->
-<section class="content">
-   <!--Formulario encargado de la busqueda.-->
-        <form method="get" action="calendarioMenu.php" >
+        <!-- Main content -->
+        <section class="content">
 
-            <div class="row">
-            <!--Select Box-->
-                <div class="col-sm-4">
 
-                    <div class="form-group">
-                        <label>CARRERA</label>
-                        <select class="form-control">
-                            <?php foreach($llenarComboboxCarrera as $item): ?>
-                                <option><?php echo $item['Carrera'];?></option>
-                            <?php endforeach; ?>
-                        </select>
+          <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Chat</h3>
+                  <div class="box-tools pull-right">
+
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+
+
+
+
+                <?php foreach($trabajoGraduacion as $item): ?>
+
+                <?php if ($item['usuario']==1): ?>
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                       <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
                     </div>
 
 
-                <div class="form-group">
-                        <label>INTEGRANTES</label>
-                </div>
-               </div>
-            </div>
+                <?php else: ?>
+                            <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/avatar_asesorado.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
 
-            <div class="row">
-                <div class="col-xs-3">
-                    <span class="form-group">
-                        <label>Nombre:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </span>
-                </div>
-                <div class="col-xs-3">
-                    <span class="form-group">
-                        <label>Carnet:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </span>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-xs-3">
-                    <div class="form-group">
-                        <label>Nombre:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
+
+                <?php endif ?>
+
+
+                <?php endforeach; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div><!--/.direct-chat-messages-->
+
+
+
+                </div><!-- /.box-body -->
+                <!-- /.box-footer-->
+                 <div class="box-footer">
+                  <form action="mensaje.php" method="post">
+                    <div class="input-group">
+                      <input type="text" name="mensaje" placeholder="Escribe un mensaje ..." class="form-control">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-danger btn-flat">Enviar</button>
+                      </span>
                     </div>
-                </div>
-                <div class="col-xs-3">
-                    <span class="form-group">
-                        <label>Carnet:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </span>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-3">
-                    <div class="form-group">
-                        <label>Nombre:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="form-group">
-                        <label>Carnet:</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                 <div class="col-sm-4">
-                    <div class="form-group">
-                      <label>TIPO DE TRABAJO</label>
-                        <select class="form-control">
-                            <?php foreach($llenarTipoTrabajo as $item): ?>
-                                <option><?php echo $item['Tipo_Trabajocol'];?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                     <div class="form-group">
-                         <label>TITULO DE TRABAJO</label>
-                            <input class="form-control" placeholder="Enter ..." type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>LUGAR A REALIZARSE</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>ASESOR DEL PROYECTO</label>
-                        <input class="form-control" placeholder="Enter ..." type="text">
-                    </div>
-                 </div>
-            </div>
-            <button class="btn btn-danger btn-lg">Guardar</button>
-
-            </form>
-            <br/>
-            <div id="wrapperContent" class="row">
-            </div>
+                  </form>
+                </div><!-- /.box-footer-->
+              </div>
 
         </section>
 

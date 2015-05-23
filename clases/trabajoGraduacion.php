@@ -111,7 +111,7 @@
   public static function recuperarMensajes($id){
        $Conexion = new Conectar();
        $consulta = $Conexion->prepare('SELECT usuario,Fecha,Mensajecol,Remitente FROM Mensaje Inner join Trabajo_Graduacion
-       on Mensaje.Trabajo_Graduacion_idTrabajo_Graduacion = Trabajo_Graduacion.idTrabajo_Graduacion
+       on Mensaje.idTrabajo_Graduacion = Trabajo_Graduacion.idTrabajo_Graduacion
        WHERE Trabajo_Graduacion.idTrabajo_Graduacion='.$id);
        $consulta->bindParam(':patron', $patron);
        $consulta->execute();
@@ -172,6 +172,35 @@
 public static function buscarPorIdAsesorado($id){
       $Conexion = new Conectar();
       $consulta = $Conexion->prepare('SELECT titulo, descripcion FROM ' . self::TABLA . ' WHERE idTrabajo_Graduacion = :id');
+      $consulta->bindParam(':id', $id);
+      $consulta->execute();
+      $registro = $consulta->fetch();
+      return $registro;
+}
+
+     public static function escribirMensajeAsesorado($id,$mensaje,$remitente){
+       $Conexion = new Conectar();
+       $usuario = 2;
+       $consulta = $Conexion->prepare('INSERT INTO Mensaje
+        (Mensajecol,idTrabajo_Graduacion,Remitente,usuario)
+        values ("'.$mensaje.'"   ,'.$id.',    "'.$remitente.'"   , '.$usuario.' )');
+       $consulta->execute();
+       $Conexion = null;
+  }
+
+     public static function escribirMensajeAsesor($id,$mensaje,$remitente){
+       $Conexion = new Conectar();
+       $usuario = 1;
+       $consulta = $Conexion->prepare('INSERT INTO Mensaje
+        (Mensajecol,idTrabajo_Graduacion,Remitente,usuario)
+        values ("'.$mensaje.'"   ,'.$id.',    "'.$remitente.'"   , '.$usuario.' )');
+       $consulta->execute();
+       $Conexion = null;
+  }
+
+public static function recuperarUltimoMensaje($id){
+      $Conexion = new Conectar();
+      $consulta = $Conexion->prepare('SELECT Mensajecol FROM `Mensaje` WHERE idTrabajo_Graduacion=:id ORDER by idMensaje DESC LIMIT 1 ');
       $consulta->bindParam(':id', $id);
       $consulta->execute();
       $registro = $consulta->fetch();

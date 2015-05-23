@@ -1,6 +1,10 @@
 Bienvenidos al desarrollo de la aplicacion web
 Administracion de Trabajos de Graduacion !!
 
+ATG V1.9<br>
+-Se agrego el funcionamiento del chat <br>
+
+
 ATG V1.7<br>
 -Se modifico estados<br>
 -Se modifico estadosDesarrollo<br>

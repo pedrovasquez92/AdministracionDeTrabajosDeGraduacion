@@ -149,7 +149,12 @@ $trabajo =  $trabajoGraduacion['titulo']."";
                 <span>Revisiones</span>
               </a>
             </li>
+            <li>
+              <a href="asesorado/mensaje.php">
+                <i class="fa fa-comments"></i> <span>Mensajes</span>
 
+              </a>
+            </li>
              <li>
               <a href="asesorado/calendario.php">
                 <i class="fa fa-calendar"></i> <span>Calendario</span>
