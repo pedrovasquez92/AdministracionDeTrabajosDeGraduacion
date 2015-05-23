@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+
 <!--Verificacion de el inicio de sesion-->
 <?php
     //creamos la sesion
     session_start();
+    $id =  $_SESSION['idTrabajo'];
     //validamos si se ha hecho o no el inicio de sesion correctamente
     //si no se ha hecho la sesion nos regresará a login.php
-    if(!isset($_SESSION['usuarioFacultad']))
+    if(!isset($_SESSION['usuarioAsesor']))
     {
-      header('Location: ../index.php');
+      header('Location:../index.php');
       exit();
     }
 ?>
@@ -16,15 +18,27 @@
 <!--
 <?php
  require_once '../clases/trabajoGraduacion.php';
- $trabajoGraduacion = TrabajoGraduacion::recuperarExpedientes($_GET['id']);
+
+$ultimoMensaje = TrabajoGraduacion::recuperarUltimoMensaje($_GET['id']);
+
+$mensajeAnterior = $ultimoMensaje['Mensajecol'];
+$mensajeEscribir = $_POST['mensaje'];
+
+if(trim($mensajeAnterior) != trim($mensajeEscribir))
+    {
+      $remitente = $_SESSION['identificador'];
+      $trabajoGraduacionInsertar = TrabajoGraduacion::escribirMensajeAsesor($_GET['id'],$mensajeEscribir,$remitente);
+      unset($_POST['mensaje']);
+    }
+
+ $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($_GET['id']);
 
 ?>
 -->
 
-
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Trabajos de graduacion | Unicaes</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -35,8 +49,6 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-
-
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -54,7 +66,6 @@
     <link href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,7 +74,6 @@
     <![endif]-->
   </head>
   <body class="skin-red">
-
 
     <div class="wrapper">
 
@@ -100,7 +110,7 @@
                   <li class="user-footer">
 
                     <div class="pull-right">
-                      <a href="logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="../logout.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>
@@ -130,110 +140,151 @@
 
 
           <!-- /.search form -->
-
-			<!-- sidebar menu: : style can be found in sidebar.less -->
-         <ul class="sidebar-menu">
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACIÓN</li>
-            <li class="treeview">
-              <a href="../facultad.php">
-                <i class="fa fa-home"></i> <span>Escritorio</span>
+            <li class="active">
+              <a href="../asesorado.php">
+                <i class="fa fa-home"></i> <span>Inicio</span>
+              </a>
+            </li>
+			  <li class="treeview">
+              <a href="estados.php">
+                <i class="fa fa-th"></i> <span>Etapas</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="estadoMenu.php?patron=">
-                <i class="fa fa-puzzle-piece"></i>
-                <span>Asignar Nuevo Trabajo</span>
-              </a>
-            </li>
-            <li>
-              <a href="estadoMenu.php?patron=">
-                <i class="fa fa-th"></i> <span>Trabajos de Graduación</span>
-              </a>
-            </li>
-            <li>
-              <a href="revisionMenu.php?patron=">
+              <a href="revisiones.php">
                 <i class="fa fa-check-square-o"></i>
                 <span>Revisiones</span>
               </a>
             </li>
-            <li class="active ">
-              <a href="calendarioMenu.php?patron=">
-                <i class="fa fa-calendar"></i> <span>Calendario</span>
-
-              </a>
-            </li>
             <li>
-              <a href="mensajeMenu.php?patron=">
+              <a href="mensaje.php">
                 <i class="fa fa-comments"></i> <span>Mensajes</span>
 
               </a>
             </li>
+             <li>
+              <a href="calendario.php">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
 
-            <li><a href="expedienteMenu.php?patron="><i class="fa fa-book"></i> Expediente</a></li>
+              </a>
+            </li>
+
+            <li><a href="expe.php"><i class="fa fa-book"></i>Expediente</a></li>
 
           </ul>
-
-
         </section>
         <!-- /.sidebar -->
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-              <!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            Expedientes
+              <h1>
+                Mensajes
+                <small>Trabajo de Graduacion</small>
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="../facultad.php"><i class="fa fa-dashboard"></i> Escritorio</a></li>
+                <li class="active">Mensajes</li>
+              </ol>
+        </section>
 
-          </h1>
 
+        <!-- Main content -->
+        <section class="content">
+
+
+          <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Chat</h3>
+                  <div class="box-tools pull-right">
+
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+
+
+
+
+                <?php foreach($trabajoGraduacion as $item): ?>
+
+                <?php if ($item['usuario']==1): ?>
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-right"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                       <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div>
+
+
+                <?php else: ?>
+                            <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
+                        <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        <?php echo $item['Mensajecol']; ?>
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+
+
+                <?php endif ?>
+
+
+                <?php endforeach; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div><!--/.direct-chat-messages-->
+
+
+
+                </div><!-- /.box-body -->
+                <!-- /.box-footer-->
+                 <div class="box-footer">
+                  <form action="mensaje.php" method="post">
+                    <div class="input-group">
+                      <input type="text" name="mensaje" placeholder="Escribe un mensaje ..." class="form-control">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-danger btn-flat">Enviar</button>
+                      </span>
+                    </div>
+                  </form>
+                </div><!-- /.box-footer-->
+              </div>
 
         </section>
-          <!-- Main content -->
-
-           <section class="content">
-
-
-            <div class="modal-body">
-               <?php foreach($trabajoGraduacion as $item): ?>
-
-                <div class="form-group">
-                    <div class="input-group">
-                    <span class="input-group-addon">Codigo:</span>
-                    <input name="email_to" type="text" value="<?php echo $item['idExpediente']; ?> - <?php echo $item['Fecha']; ?> " class="form-control" >
-                    </div>
-                </div>
-
-                <div class="form-group">
-                <div class="btn btn-success btn-file">
-                <i class="fa  fa-download"></i>
-                    <a style="color: white" href="<?php echo $item['Expediente']; ?>" download>
-                        Descargar Expediente
-                    </a>
-
-                </div>
-
-                </div>
-               <?php endforeach; ?>
-
-
-            </div>
-
-
-
-
-          </section>
-
-            <!-- HASTA AQUI TERMINO -->
 
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <!--<footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Unicaes</a>.</strong> All rights reserved.
-      </footer>-->
+
+
+
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
