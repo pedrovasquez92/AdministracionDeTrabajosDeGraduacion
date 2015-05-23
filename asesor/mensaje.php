@@ -24,13 +24,14 @@ $ultimoMensaje = TrabajoGraduacion::recuperarUltimoMensaje($_GET['id']);
 $mensajeAnterior = $ultimoMensaje['Mensajecol'];
 $mensajeEscribir = $_POST['mensaje'];
 
+if( trim($mensajeEscribir )!=""){
 if(trim($mensajeAnterior) != trim($mensajeEscribir))
     {
       $remitente = $_SESSION['identificador'];
       $trabajoGraduacionInsertar = TrabajoGraduacion::escribirMensajeAsesor($_GET['id'],$mensajeEscribir,$remitente);
       unset($_POST['mensaje']);
     }
-
+}
  $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($_GET['id']);
 
 ?>

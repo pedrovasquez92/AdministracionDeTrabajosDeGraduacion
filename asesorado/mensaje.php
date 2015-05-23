@@ -24,18 +24,18 @@ $ultimoMensaje = TrabajoGraduacion::recuperarUltimoMensaje($id);
 $mensajeAnterior = $ultimoMensaje['Mensajecol'];
 $mensajeEscribir = $_POST['mensaje'];
 
+if( trim($mensajeEscribir )!=""){
 if(trim($mensajeAnterior) != trim($mensajeEscribir))
     {
       $remitente = $_SESSION['identificador'];
       $trabajoGraduacionInsertar = TrabajoGraduacion::escribirMensajeAsesorado($id,$mensajeEscribir,$remitente);
       unset($_POST['mensaje']);
     }
-
+}
  $trabajoGraduacion = TrabajoGraduacion::recuperarMensajes($id);
 
 ?>
 -->
-
 <html>
   <head>
     <meta charset="utf-8">
@@ -236,7 +236,7 @@ if(trim($mensajeAnterior) != trim($mensajeEscribir))
                         <span class="direct-chat-name pull-right"><?php echo $item['Remitente']; ?></span>
                         <span class="direct-chat-timestamp pull-left"><?php echo $item['Fecha']; ?></span>
                       </div><!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="../dist/img/avatar.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <img class="direct-chat-img" src="../dist/img/avatar_asesorado.png" alt="message user image"><!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         <?php echo $item['Mensajecol']; ?>
                       </div><!-- /.direct-chat-text -->
